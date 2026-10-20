@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN4103 EAII Preparation_DE</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f2f5; color: #333; line-height: 1.6; }
+        .header { background: linear-gradient(135deg, #5a9e3e, #7bc67e); color: white; padding: 24px 40px 0; position: relative; }
+        .header-top { display: flex; justify-content: space-between; align-items: flex-start; }
+        .header h1 { font-size: 1.4em; }
+        .header .zh-title { font-size: 1em; opacity: 0.85; margin-top: 3px; }
+        .toggle-btn { background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 7px 18px; border-radius: 25px; cursor: pointer; font-size: 0.85em; font-weight: 600; transition: all 0.3s; }
+        .toggle-btn:hover { background: rgba(255,255,255,0.35); }
+        .dl-btn { background: rgba(255,255,255,0.2); border: 2px solid white; color: white; padding: 7px 16px; border-radius: 25px; text-decoration: none; font-size: 0.85em; font-weight: 600; transition: all 0.3s; white-space: nowrap; }
+        .dl-btn:hover { background: rgba(255,255,255,0.35); }
+        .tabs { display: flex; gap: 0; margin-top: 18px; flex-wrap: wrap; }
+        .tab-btn { background: rgba(255,255,255,0.15); border: none; color: rgba(255,255,255,0.7); padding: 10px 28px; cursor: pointer; font-size: 0.9em; font-weight: 600; border-radius: 8px 8px 0 0; transition: all 0.2s; }
+        .tab-btn.active { background: #f0f2f5; color: #3a7a2a; }
+        .tab-btn:hover:not(.active) { background: rgba(255,255,255,0.25); color: white; }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 40px; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; padding-top: 25px; }
+        .card { background: white; border-radius: 10px; padding: 28px; margin-bottom: 18px; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
+        .card h2 { font-size: 1.1em; color: #3a7a2a; border-bottom: 2px solid #5a9e3e; padding-bottom: 7px; margin-bottom: 14px; }
+        .zh-label { color: #5a9e3e; font-weight: 600; font-size: 0.85em; margin-top: 6px; }
+        .info-grid { display: grid; grid-template-columns: 220px 1fr; gap: 7px 12px; }
+        .info-grid dt { font-weight: 600; color: #555; }
+        .info-grid dd { color: #333; }
+        .project-section { margin-bottom: 16px; }
+        .project-section h3 { font-size: 0.98em; color: #5a9e3e; margin-bottom: 5px; }
+        .project-section p, .project-section ul { font-size: 0.93em; color: #444; }
+        .project-section ul { margin-left: 18px; margin-top: 4px; }
+        .zh-text { color: #888; font-size: 0.86em; margin-top: 4px; line-height: 1.5; }
+        body.hide-zh .zh-text,
+        body.hide-zh .zh-label,
+        body.hide-zh .header .zh-title,
+        body.hide-zh .zh-foot { display: none; }
+        .footer { display: flex; justify-content: space-between; font-size: 0.93em; color: #555; padding-top: 14px; border-top: 1px solid #ddd; }
+        .zh-foot { color: #999; font-size: 0.83em; }
+        .answer { color: #3a7a2a; font-weight: 600; background: #eaf7e4; padding: 1px 4px; border-radius: 3px; }
+        .given { color: #888; font-style: italic; }
+        .form-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .form-table th, .form-table td { border: 1px solid #ccc; padding: 8px 12px; font-size: 0.9em; text-align: left; }
+        .form-table th { background: #eaf7e4; color: #3a7a2a; font-weight: 600; width: 200px; }
+        .form-table td { color: #555; }
+        .form-table .blank { color: #ccc; font-style: italic; }
+        .section-label { font-size: 0.95em; font-weight: 600; color: #3a7a2a; margin-top: 14px; margin-bottom: 6px; }
+        .findings-highlight { background: #fdf2e9; border-left: 4px solid #e67e22; padding: 10px 14px; margin: 10px 0; font-size: 0.93em; }
+        textarea.blank-input {
+            width: 100%;
+            border: 1px dashed #ccc;
+            padding: 12px;
+            color: #ccc;
+            font-style: italic;
+            font-family: inherit;
+            font-size: 0.93em;
+            line-height: 1.6;
+            resize: vertical;
+            min-height: 50px;
+            background: transparent;
+            overflow: hidden;
+        }
+        textarea.blank-input:focus {
+            border-color: #5a9e3e;
+            color: #333;
+            outline: none;
+            background: #f8fdf6;
+        }
+        .vocab-box { background: #f8f9fa; border-left: 4px solid #5a9e3e; padding: 12px 16px; margin: 10px 0; font-size: 0.93em; }
+        .vocab-box strong { color: #3a7a2a; }
+        .formula-box { background: #f0f7ed; border: 1px solid #c3e6b5; border-radius: 6px; padding: 14px 18px; margin: 10px 0; font-size: 0.93em; }
+        .formula-box em { color: #5a9e3e; font-weight: 600; font-style: normal; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div>
+                <h1>LAN4103 EAII Preparation_DE <a href="https://beccatang-1710.github.io/LAN4103_IT_Teaching-of-Funding-Proposal/" target="_blank" style="display:inline-block; background:rgba(255,255,255,0.25); border:2px solid white; color:white; padding:2px 10px; border-radius:15px; text-decoration:none; font-size:0.55em; font-weight:700; vertical-align:middle; margin-left:6px; transition:all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.4)'" onmouseout="this.style.background='rgba(255,255,255,0.25)'">IT</a></h1>
+                <div style="font-size:0.85em; opacity:0.9; margin-top:2px;">Presented by Rebecca Tang</div>
+                <div class="zh-title" id="zhMainTitle">LAN4103_EAII 备考_DE</div>
+            </div>
+            <div style="display:flex; gap:8px; align-items:center;">
+                <button class="toggle-btn" onclick="toggleLang()">中文 / English</button>
+            </div>
+        </div>
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(0)">Unit 8: Quantitative Findings</button>
+            <button class="tab-btn" onclick="switchTab(1)">Unit 9: Qualitative Findings</button>
+            <button class="tab-btn" onclick="switchTab(2)">Clinic Task 1: Cantonese for All</button>
+            <button class="tab-btn" onclick="switchTab(3)">Revision Package II</button>
+        </div>
+    </div>
+
+    <div class="container">
+
+<!-- ==================== TAB 0: Unit 8 — Quantitative Findings ==================== -->
+<div class="tab-content active" id="tab0">
+    <div class="card">
+        <h2>Unit 8: Describing Quantitative Findings</h2>
+        <div class="zh-label">单元八：描述量化研究结果</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Professional Workplace Communication: Proposal and Report Writing (LAN4103)</p>
+        <div class="zh-text">专业职场沟通：提案及报告写作（LAN4103）</div>
+        <p style="font-size:0.9em; color:#666; margin-top:4px;">Student Version | Course Notes &amp; Statistical Analysis Tasks</p>
+    </div>
+
+    <div class="card">
+        <h2>Learning Objectives</h2>
+        <div class="zh-label">学习目标</div>
+        <p style="font-size:0.93em; color:#555;">By the end of this unit, you will be able to:</p>
+        <ul>
+            <li>identify the purposes of various visuals for presenting statistical data</li>
+            <li>describe quantitative findings (distributions, pre- and post-project comparisons, changes and trends)</li>
+            <li>select and describe salient findings clearly and objectively in evaluation reports</li>
+        </ul>
+        <div class="zh-text">学完本单元后，你将能够：辨识各种视觉图表呈现统计数据的目的；描述量化研究结果（分布、项目前后比较、变化及趋势）；在评估报告中清晰客观地选取及描述重要研究结果。</div>
+    </div>
+
+    <div class="card">
+        <h2>Task 1: Presenting Statistical Data</h2>
+        <div class="zh-label">任务一：呈现统计数据</div>
+        <p style="font-size:0.93em; color:#555;">Quantitative findings are the numerical data collected using tools such as questionnaire surveys. They are expressed in numbers, percentages, or statistics, and provide measurable evidence to assess a project's effectiveness objectively. Visuals help people see comparisons, relationships, or trends clearly.</p>
+        <div class="zh-text">量化研究结果是使用问卷调查等工具收集的数值数据，以数字、百分比或统计数据表示，提供可量化的证据以客观评估项目成效。视觉图表有助于人们清晰地看到比较、关系或趋势。</div>
+
+        <div class="vocab-box">
+            <strong>Vocabulary:</strong> <em>objectively</em> (adverb) — considering only facts and without being influenced by personal feelings or opinions
+        </div>
+
+        <div class="project-section" style="margin-top:14px;">
+            <h3>Match the Visual Type to Its Purpose</h3>
+            <table class="form-table" style="margin-top:10px;">
+                <tr><th style="background:#5a9e3e; color:white;">Visual Type</th><th style="background:#5a9e3e; color:white; width:auto;">Appropriate Purpose (Match A–E)</th></tr>
+                <tr><td>1. Pie chart</td><td>D. To compare parts of a whole (e.g., percentages, fractions)</td></tr>
+                <tr><td>2. Bar chart</td><td>B. To compare things between different groups or track changes over time</td></tr>
+                <tr><td>3. Line graph</td><td>E. To show trends over time (continuous data)</td></tr>
+                <tr><td>4. Table</td><td>C. To classify data into categories using rows and columns</td></tr>
+                <tr><td>5. Pictogram</td><td>A. To compare quantities or illustrate changes over time using icons or images</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 2: Describing Quantitative Findings</h2>
+        <div class="zh-label">任务二：描述量化研究结果</div>
+
+        <div class="project-section">
+            <h3>Task 2a — Describing Distributions</h3>
+            <p style="font-size:0.93em; color:#555;">When describing a pie chart or percentage distribution, you can combine numerical descriptions (e.g., 60%) with general descriptions (e.g., 'more than half of the respondents').</p>
+            <div class="zh-text">描述饼图或百分比分布时，可将数字描述（如60%）与概括描述（如「超过半数受访者」）结合使用。</div>
+
+            <div class="formula-box" style="margin-top:10px;">
+                <em>Sample Formula:</em> [General description] + [Segment description] + [Conjunction] + [Numerical description] + [Segment description]<br>
+                <strong>Example:</strong> "More than half of the respondents repurposed their old clothes regularly, whereas 30% of them did so occasionally."
+            </div>
+
+            <div class="project-section" style="margin-top:10px;">
+                <h3>Numerical Descriptions</h3>
+                <ul>
+                    <li>(more/less than) 5% · one-tenth / one-fifth / a quarter</li>
+                    <li>one-third / two-thirds / three-quarters</li>
+                </ul>
+                <h3>General Descriptions</h3>
+                <ul>
+                    <li>(more/less than) half of · a majority of / a minority of</li>
+                    <li>(very) few of / almost all / all / none of</li>
+                </ul>
+            </div>
+
+            <div class="vocab-box">
+                <strong>Reporting Grammatical Adjustments:</strong><br>
+                • 'you' → 'respondents' / 'participants'<br>
+                • 'repurpose' → 'repurposed' (simple past tense for completed surveys)<br>
+                • 'your' → 'their'<br>
+                • 'did so' to avoid repeating the previous verb phrase
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h3>Practice: Describe the survey distributions below</h3>
+            <p><strong>1.</strong> Survey: "How often do you donate or give away clothes you no longer wear?"</p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">Very often: 56%, Sometimes: 38%, Rarely: 6%, Never: 0%</p>
+            <textarea class="blank-input" rows="3" placeholder="Description: __________________________________________________________________________________________"></textarea>
+
+            <p style="margin-top:10px;"><strong>2.</strong> Survey: "How important is sustainability to you when purchasing fashion items?"</p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">Extremely important: 80%, Moderately important: 16%, Not important at all: 4%</p>
+            <textarea class="blank-input" rows="3" placeholder="Description: __________________________________________________________________________________________"></textarea>
+        </div>
+
+        <div class="project-section">
+            <h3>Task 2b: Describing Pre- and Post-Project Findings</h3>
+            <p style="font-size:0.93em; color:#555;">Pre- and post-project data measures impact by comparing attitudes or habits before and after project intervention.</p>
+            <div class="zh-text">项目前后数据通过比较干预前后的态度或习惯来衡量影响。</div>
+            <ul style="margin-top:6px;">
+                <li><strong>Example 1:</strong> "More than half of the respondents repurposed their old clothes regularly, which was a significant improvement from only 10% before the project."</li>
+                <li><strong>Example 2:</strong> "Almost one-third of them did so occasionally, compared to just 5% prior to the project."</li>
+            </ul>
+        </div>
+
+        <div class="project-section">
+            <h3>Practice: Describe the pre- and post-project survey results</h3>
+            <p><strong>1.</strong> "How likely are you to recommend upcycled fashion to your friends and family?"</p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">Very likely: Pre 10% → Post 60%; Likely: Pre 25% → Post 25%; Neutral: Pre 60% → Post 10%; Not at all likely: Pre 5% → Post 5%</p>
+            <textarea class="blank-input" rows="3" placeholder="Description: __________________________________________________________________________________________"></textarea>
+
+            <p style="margin-top:10px;"><strong>2.</strong> "Do you agree that upcycled clothes can be trendy and fashionable?"</p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">Disagree: Pre 96% → Post 0%; Somewhat agree: Pre 4% → Post 60%; Strongly agree: Pre 0% → Post 40%</p>
+            <textarea class="blank-input" rows="3" placeholder="Description: __________________________________________________________________________________________"></textarea>
+
+            <p style="margin-top:10px;"><strong>3.</strong> "Are you satisfied with the variety of digital illustration workshops provided by the company?"</p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">Very satisfied: Pre 7% → Post 75%; Satisfied: Pre 30% → Post 20%; Not satisfied: Pre 63% → Post 5%</p>
+            <textarea class="blank-input" rows="3" placeholder="Description: __________________________________________________________________________________________"></textarea>
+        </div>
+
+        <div class="project-section">
+            <h3>Task 2c: Describing Changes and Trends</h3>
+            <table class="form-table" style="margin-top:10px;">
+                <tr><th style="background:#5a9e3e; color:white;">Direction of Change (Verbs)</th><th style="background:#5a9e3e; color:white;">Degree of Change (Adverbs)</th><th style="background:#5a9e3e; color:white;">Stability</th></tr>
+                <tr>
+                    <td><strong>Upward:</strong> go up, grow, increase, rise, skyrocket, soar<br><strong>Downward:</strong> decline, decrease, diminish, drop, fall, reduce</td>
+                    <td><strong>Large/rapid:</strong> dramatically, drastically, sharply, significantly, substantially<br><strong>Steady:</strong> gradually, steadily<br><strong>Minor:</strong> slightly, a little</td>
+                    <td><strong>Constant:</strong> keep / remain / stay + constant / stable / steady</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="project-section">
+            <h3>Trend Analysis Examples</h3>
+            <ul>
+                <li>"The percentage of clients who agreed that our design services were fairly priced rose sharply from 23% two years ago to 77% this year."</li>
+                <li>"The percentage of clients who thought our digital feedback platform was doing poorly fell remarkably from 97% to 17%."</li>
+                <li>"The percentage of clients who wanted more tutorials on using our design feedback platform remained stable over the past three years (45% → 46% → 45%)."</li>
+                <li><strong>Contrast with linking words:</strong> "The number of respondents reporting being 'quite confident' rose sharply from 40% to 80%, while those reporting 'no confidence' fell dramatically from 60% to 0%."</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 3: Reporting Salient Findings</h2>
+        <div class="zh-label">任务三：报告重要研究结果</div>
+        <p style="font-size:0.93em; color:#555;">It is not necessary to report every detail. Select only the most salient findings to keep your evaluation focused and impactful. Highlight key changes such as a significant rise or decline, or major contrasts that demonstrate project impact.</p>
+        <div class="zh-text">无需报告每个细节。只选取最重要的研究结果，使评估聚焦且有影响力。突出显示关键变化，如显著的上升或下降，或展示项目影响的重大对比。</div>
+
+        <div class="vocab-box">
+            <strong>Vocabulary:</strong> <em>salient</em> (adjective) — most important; noticeable or prominent
+        </div>
+
+        <div class="project-section" style="margin-top:14px;">
+            <h3>Case Scenarios for Identifying Salient Findings</h3>
+            <p><strong>i.</strong> Causes of negative client feedback in a design firm (Delays: 48%, Poor communication: 32%, Quality issues: 13%, Cost overruns: 6%, Others: 1%)</p>
+            <p style="margin-left:18px;"><span class="answer">Salient causes to report:</span> [Project delays] and [Poor communication], as they account for 80% of all client complaints.</p>
+
+            <p style="margin-top:10px;"><strong>ii.</strong> Designer-client communication training evaluation across 4 teams (Pre vs Post complaints):</p>
+            <p style="margin-left:18px;">Team A: 17 → 16 | Team B: 28 → 2 | Team C: 32 → 19 | Team D: 47 → 47</p>
+            <p style="margin-left:18px;"><span class="answer">Salient teams to report:</span> [Teams B &amp; C], showing dramatic reduction (93% drop in Team B and 41% drop in Team C).</p>
+
+            <p style="margin-top:10px;"><strong>iii.</strong> New project management system workflow impact (Delays without vs with system):</p>
+            <p style="margin-left:18px;">Marketing: 4 → 5 | Operations: 18 → 0 | Production: 22 → 21 | Creative: 46 → 37</p>
+            <p style="margin-left:18px;"><span class="answer">Salient department to report:</span> [Operations Department], where delays were completely eliminated (18 → 0).</p>
+
+            <p style="margin-top:10px;"><strong>iv.</strong> Architectural firm professional development quarterly participation (Jan-Mar: 53, Apr-Jun: 104, Jul-Sep: 131, Oct-Dec: 178)</p>
+            <p style="margin-left:18px;"><span class="answer">Salient trend:</span> Continuous and substantial upward growth throughout the entire year, peaking at 178 in Q4.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 4: Writing an Evaluation Report (Part II — Quantitative Findings)</h2>
+        <div class="zh-label">任务四：撰写评估报告（第二部分 — 量化研究结果）</div>
+        <p style="font-size:0.93em; color:#555;">Project: 'The Immersive Gallery Walk'</p>
+
+        <div class="project-section">
+            <h3>Survey Data</h3>
+            <p><strong>Q1 Engagement level with artworks:</strong></p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">High (Pre 6% → Post 60%), Moderate (Pre 10% → Post 28%), Low (Pre 14% → Post 10%), Not at all (Pre 70% → Post 2%)</p>
+            <p style="margin-top:6px;"><strong>Q2 Recommendation to friends:</strong></p>
+            <p style="margin-left:18px; color:#666; font-size:0.9em;">Very likely (Pre 5% → Post 74%), Somewhat likely (Pre 15% → Post 20%), Not likely (Pre 80% → Post 6%)</p>
+        </div>
+
+        <div class="project-section">
+            <p><strong>Task:</strong> Draft Section 3. Findings for the evaluation report, selecting and describing the salient quantitative data:</p>
+            <p style="font-size:0.93em; color:#555; margin-top:6px;"><em>Evaluation report on 'The Immersive Gallery Walk' project — 3. Findings</em></p>
+            <textarea class="blank-input" rows="10" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Unit 8 Vocabulary &amp; Reference Summary</h2>
+        <div class="zh-label">单元八词汇与参考摘要</div>
+        <div class="project-section">
+            <h3>Nouns &amp; Visual Formats</h3>
+            <p>Nouns: category, comparison, distribution, evaluation, impact, trend, visual</p>
+            <p>Visuals: bar chart, line graph, pictogram, pie chart, table</p>
+        </div>
+        <div class="project-section">
+            <h3>Verbs (Change &amp; Trends)</h3>
+            <p><strong>Upward:</strong> go up, grow, increase, rise, skyrocket, soar</p>
+            <p><strong>Downward:</strong> decline, decrease, diminish, drop, fall, reduce</p>
+            <p><strong>Steady:</strong> keep/remain/stay constant/stable/steady</p>
+        </div>
+        <div class="project-section">
+            <h3>Adjectives &amp; Adverbs</h3>
+            <p><strong>Adjectives:</strong> measurable, numerical, quantitative, salient, statistical</p>
+            <p><strong>Adverbs:</strong> dramatically, drastically, sharply, significantly, substantially, steadily, slightly</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 1: Unit 9 — Qualitative Findings ==================== -->
+<div class="tab-content" id="tab1">
+    <div class="card">
+        <h2>Unit 9: Describing Qualitative Findings</h2>
+        <div class="zh-label">单元九：描述质性研究结果</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Professional Workplace Communication: Proposal and Report Writing (LAN4103)</p>
+        <div class="zh-text">专业职场沟通：提案及报告写作（LAN4103）</div>
+        <p style="font-size:0.9em; color:#666; margin-top:4px;">Student Version | Course Notes &amp; Qualitative Analysis Tasks</p>
+    </div>
+
+    <div class="card">
+        <h2>Learning Objectives</h2>
+        <div class="zh-label">学习目标</div>
+        <p style="font-size:0.93em; color:#555;">By the end of this unit, you will be able to:</p>
+        <ul>
+            <li>analyse qualitative data from surveys, interviews, and focus groups</li>
+            <li>report positive comments and extract thematic insights</li>
+            <li>report negative comments tactfully using professional softening techniques</li>
+        </ul>
+        <div class="zh-text">学完本单元后，你将能够：分析来自调查、访谈和焦点小组的质性数据；报告正面评论并提取主题洞察；运用专业缓和技巧巧妙地报告负面评论。</div>
+    </div>
+
+    <div class="card">
+        <h2>Introduction</h2>
+        <p style="font-size:0.93em; color:#555;">While quantitative data provides measurable evidence of a project's outcomes, qualitative data (opinions, open-ended responses, interviews) reveals the reasons and insights behind the figures. You will learn to report qualitative findings to complement data-driven results with human perspectives.</p>
+        <div class="zh-text">量化数据提供项目成果的可量化证据，而质性数据（意见、开放式回答、访谈）则揭示数据背后的原因和洞察。你将学习报告质性研究结果，以人文视角补充数据驱动的结果。</div>
+        <div class="vocab-box">
+            <strong>Vocabulary:</strong> <em>qualitative</em> (adjective) — relating to what something is like or how good it is, rather than how much of it there is
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 1: Analysing Qualitative Data (Categorisation)</h2>
+        <div class="zh-label">任务一：分析质性数据（分类）</div>
+        <p style="font-size:0.93em; color:#555;">Classify each comment as Positive, Negative, or Irrelevant based on its tone and relevance to the 'Old Clothes; New Looks' project:</p>
+        <div class="zh-text">根据语气和与「旧衣新貌」项目的相关性，将每条评论分类为正面、负面或无关：</div>
+
+        <div class="project-section" style="margin-top:10px;">
+            <p><strong>A.</strong> 'The hand-sewing techniques are rather complex. I can't quite follow the steps.' → <span class="answer">[Negative]</span></p>
+            <p><strong>B.</strong> 'The stitching demonstrations helped me improve my hemming techniques.' → <span class="answer">[Positive]</span></p>
+            <p><strong>C.</strong> 'I love the hands-on practice with real pieces. It sparks my imagination for new styles.' → <span class="answer">[Positive]</span></p>
+            <p><strong>D.</strong> 'I've got great bargains from Joyce boutique lately.' → <span class="answer">[Irrelevant]</span></p>
+            <p><strong>E.</strong> 'I understand the content better with the handouts provided in the workshops.' → <span class="answer">[Positive]</span></p>
+            <p><strong>F.</strong> 'How can I create stylish looks if I can't source quality second-hand clothes?' → <span class="answer">[Negative]</span></p>
+            <p><strong>G.</strong> 'The trainers are fantastic. They offer clear feedback to us every session.' → <span class="answer">[Positive]</span></p>
+            <p><strong>H.</strong> 'My friends kept calling me when I was shopping for clothes.' → <span class="answer">[Irrelevant]</span></p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 2: Reporting Positive Comments</h2>
+        <div class="zh-label">任务二：报告正面评论</div>
+
+        <div class="project-section">
+            <h3>Three-Step Thematic Process</h3>
+            <ol style="margin-left:18px;">
+                <li>Group comments into common themes</li>
+                <li>Identify significant themes</li>
+                <li>Summarise and report key insights</li>
+            </ol>
+        </div>
+
+        <div class="project-section">
+            <h3>Key Themes Identified from Focus Group</h3>
+            <p><strong>Theme 1:</strong> Trainer professionalism and clear feedback</p>
+            <p><strong>Theme 2:</strong> Value and effectiveness of hands-on practical sewing exercises</p>
+        </div>
+
+        <div class="project-section">
+            <h3>Reporting Key Insights using Reported Speech</h3>
+            <p><strong>a. Trainer professionalism:</strong> "It was commented that the trainers were highly professional and provided clear, step-by-step guidance."</p>
+            <p><strong>b. Hands-on practice:</strong> "Some participants expressed satisfaction with the practical hands-on exercises, noting that working with real fabric boosted their creative confidence."</p>
+        </div>
+
+        <div class="project-section">
+            <h3>Reporting Frame</h3>
+            <table class="form-table" style="margin-top:10px;">
+                <tr><th style="background:#5a9e3e; color:white;">Reporting Structure</th><th style="background:#5a9e3e; color:white;">Reported Content</th></tr>
+                <tr><td>It was commented / found / noted / observed that...<br>Feedback from the focus group indicated / revealed that...</td><td>...the trainers were professional and supportive. (Clause)</td></tr>
+                <tr><td>Some / Several participants agreed / expressed / mentioned that...<br>Participants were satisfied / pleased with...</td><td>...the usefulness of the hands-on practice. (Noun phrase)</td></tr>
+            </table>
+        </div>
+
+        <div class="project-section">
+            <h3>Task 2b — Practice: Reporting precision sewing machine workshop comments</h3>
+            <p><strong>1.</strong> 'The workshop's really practical! We can practise using the precision sewing machines!'</p>
+            <p style="margin-left:18px;"><span class="answer">Reported:</span> It was commented that the workshop was very practical, allowing participants to practise using precision sewing machines.</p>
+
+            <p style="margin-top:8px;"><strong>2.</strong> 'I feel more confident about using a sewing machine to create my designs now.'</p>
+            <p style="margin-left:18px;"><span class="answer">Reported:</span> Some participants expressed that they felt more confident in operating sewing machines for their design creations.</p>
+
+            <p style="margin-top:8px;"><strong>3.</strong> 'The instructor clearly explained how the sewing machines work and the step-by-step guidance is easy to understand.'</p>
+            <p style="margin-left:18px;"><span class="answer">Reported:</span> Feedback revealed that the instructor explained machine operations clearly, providing easy-to-follow, step-by-step guidance.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 3: Reporting Negative Comments Tactfully</h2>
+        <div class="zh-label">任务三：巧妙地报告负面评论</div>
+        <p style="font-size:0.93em; color:#555;">To provide a balanced evaluation, negative comments must be reported to pinpoint areas for improvement. Use neutral, professional, and constructive language rather than harsh or critical wording.</p>
+        <div class="zh-text">为提供平衡的评估，必须报告负面评论以指出改进领域。使用中立、专业和建设性的语言，而非严厉或批评性的措辞。</div>
+
+        <div class="project-section" style="margin-top:14px;">
+            <h3>Comparison</h3>
+            <p><strong>Harsh:</strong> "The hand-sewing techniques are so complex. The useless instructions make it impossible to follow."</p>
+            <p><strong>Version A (Direct):</strong> "Some expressed that the hand-sewing techniques were too complex and they could not follow the instructions."</p>
+            <p><span class="answer"><strong>Version B (Tactful &amp; Constructive):</strong></span> "Some thought the demonstration session could be more efficient if it included clearer instructions and more hands-on practice."</p>
+        </div>
+
+        <div class="project-section">
+            <h3>Techniques for Tactful Reporting</h3>
+            <table class="form-table" style="margin-top:10px;">
+                <tr><th style="background:#5a9e3e; color:white; width:30%;">Technique</th><th style="background:#5a9e3e; color:white;">Direct / Rude Feedback</th><th style="background:#5a9e3e; color:white;">Tactful Reporting</th></tr>
+                <tr>
+                    <td>1. Replace rude/offensive words with neutral terms</td>
+                    <td>'The consultation fees are a complete RIP-OFF!'</td>
+                    <td>Some clients thought that the consultation fees were somewhat higher than expected.</td>
+                </tr>
+                <tr>
+                    <td>2. Focus on the issue, not the person</td>
+                    <td>'The designer spoke so fast; I couldn't understand her ideas.'</td>
+                    <td>Feedback indicated that the presentation pace was rather fast, making explanations occasionally difficult to follow.</td>
+                </tr>
+                <tr>
+                    <td>3. Use frequency words to show non-constant issues</td>
+                    <td>'If I can't book an appointment through the online system, what's the point?'</td>
+                    <td>It was reported that the online booking system occasionally experienced technical issues.</td>
+                </tr>
+                <tr>
+                    <td>4. Highlight constructive elements</td>
+                    <td>'The wait time was ridiculous! Took over a week to get a response!'</td>
+                    <td>Feedback revealed that client response times could be improved to enhance service efficiency.</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="project-section">
+            <h3>Task 3c — Practice: Rewriting negative sewing workshop comments tactfully</h3>
+            <p><strong>1.</strong> 'We waited too long for our turn to practise using the precision sewing machines.'</p>
+            <p style="margin-left:18px;"><span class="answer">Tactful:</span> However, some participants expressed that waiting times for machine practice could be shortened by scheduling smaller practice groups.</p>
+
+            <p style="margin-top:8px;"><strong>2.</strong> 'The handouts were poorly written and didn't match what we were taught in the workshop.'</p>
+            <p style="margin-left:18px;"><span class="answer">Tactful:</span> It was also noted that the workshop handouts could be refined to better align with the practical demonstration steps.</p>
+
+            <p style="margin-top:8px;"><strong>3.</strong> 'The machines kept malfunctioning, which made the training pointless and confusing!'</p>
+            <p style="margin-left:18px;"><span class="answer">Tactful:</span> Furthermore, feedback indicated that sewing machines occasionally experienced technical glitches, suggesting that pre-session equipment maintenance would be beneficial.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 4: Completing an Evaluation Report (Part III — Qualitative Findings)</h2>
+        <div class="zh-label">任务四：完成评估报告（第三部分 — 质性研究结果）</div>
+        <p style="font-size:0.93em; color:#555;">Focus Group Feedback from 'The Immersive Gallery Walk' VR Tours:</p>
+        <ul>
+            <li><strong>Positive:</strong> 'The immersive experience from the VR-guided tours is intriguing and innovative. 😊'</li>
+            <li><strong>Constructive:</strong> 'It's a bit disappointing: there were too many people and it was crowded at weekends. 🙁'</li>
+            <li><strong>Negative (Emotional):</strong> 'YOU SERIOUSLY THINK THAT IT'S OKAY TO SHARE VR HEADSETS THIS WAY?! THEY ARE STINKY AND SWEATY!!! 😡'</li>
+        </ul>
+
+        <div class="project-section" style="margin-top:14px;">
+            <p><strong>Task:</strong> Draft Section 3. Findings (cont'd) incorporating qualitative feedback tactfully:</p>
+            <p style="font-size:0.93em; color:#555; margin-top:6px;"><em>3. Findings (cont'd) — Qualitative Feedback</em></p>
+            <textarea class="blank-input" rows="10" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Unit 9 Vocabulary &amp; Reference Summary</h2>
+        <div class="zh-label">单元九词汇与参考摘要</div>
+        <div class="project-section">
+            <h3>Nouns &amp; Noun Phrases</h3>
+            <p>feedback, finding, focus group interview, insight, participant, perspective, qualitative data, respondent, survey, technique, theme</p>
+        </div>
+        <div class="project-section">
+            <h3>Adjectives</h3>
+            <p>constructive, critical, innovative, intriguing, neutral, offensive, open-ended, significant, tactful</p>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== TAB 2: Clinic Task 1 — Cantonese for All ==================== -->
+<div class="tab-content" id="tab2">
+    <div class="card">
+        <h2>Clinic Session — Task 1: Evaluation Report</h2>
+        <div class="zh-label">辅导课 — 任务一：评估报告</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Professional Workplace Communication: Proposal and Report Writing (LAN4103)</p>
+        <div class="zh-text">专业职场沟通：提案及报告写作（LAN4103）</div>
+    </div>
+
+    <div class="card">
+        <h2>Task</h2>
+        <div class="zh-label">任务</div>
+        <p style="font-size:0.93em; color:#555;">You are Sam Lam, an assistant officer at Hong Kong Higher Institute. You have conducted a mini-project in the language centre to help non-Chinese speaking students to better integrate to the community by offering them a Cantonese course.</p>
+        <p style="font-size:0.93em; color:#555; margin-top:6px;">You are required to write an evaluation report to the Principal discussing the effectiveness of the project and giving recommendations for the way forward. The first half of the report has been completed. Using the notes and data you have compiled, complete the rest of the report in <strong>300–350 words</strong> with appropriate elaboration on discussion, conclusion and recommendations. Use subtlety, tact, and sensitivity where appropriate and your own ideas as needed.</p>
+        <div class="zh-text">你是香港高等教育学院的助理主任林Sam。你在语言中心开展了一个迷你项目，通过提供粤语课程帮助非华语学生更好地融入社区。你须向校长撰写一份评估报告，讨论项目成效并提出建议。报告的前半部分已完成。请运用你整理的笔记和数据，在300–350字内完成报告的其余部分，适当阐述讨论、结论和建议。请在适当时运用巧妙、圆通及敏感的措辞，并按需要加入自己的想法。</div>
+    </div>
+
+    <div class="card">
+        <h2>Background &amp; Project Details</h2>
+        <div class="zh-label">背景与项目详情</div>
+        <dl class="info-grid">
+            <dt>Background:</dt><dd>The new non-Chinese speaking (NCS) students express interests to learn Cantonese for better integration</dd>
+            <dt>Project title:</dt><dd>'Cantonese for All'</dd>
+            <dt>Participants:</dt><dd>Two instructors, 50 new NCS students in Hong Kong Higher Institute</dd>
+        </dl>
+        <div class="zh-text">
+            <dl class="info-grid">
+                <dt>背景：</dt><dd>新来的非华语学生有兴趣学习粤语以更好地融入社区</dd>
+                <dt>项目名称：</dt><dd>「人人学粤语」</dd>
+                <dt>参与者：</dt><dd>两名导师，香港高等教育学院50名新非华语学生</dd>
+            </dl>
+        </div>
+
+        <div class="project-section" style="margin-top:14px;">
+            <h3>Timeline</h3>
+            <table class="form-table">
+                <tr><th style="background:#5a9e3e; color:white;">Period</th><th style="background:#5a9e3e; color:white; width:auto;">Activity</th></tr>
+                <tr><td>Sept 202-</td><td>Pre-project survey</td></tr>
+                <tr><td>Oct – Nov 202-</td><td>Twelve 1-hour lessons on elementary Cantonese and Hong Kong culture</td></tr>
+                <tr><td>Dec 202-</td><td>Post-project survey and focus group interviews</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Results of the Pre- and Post-Project Surveys</h2>
+        <div class="zh-label">项目前后调查结果</div>
+        <div class="findings-highlight">
+            <strong>Sam, pls cover these salient points in the report / Pls highlight only salient points</strong>
+        </div>
+        <textarea class="blank-input" rows="8" placeholder="Describe the salient quantitative findings from the pre- and post-project surveys here...&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>Focus Group Interview Feedback</h2>
+        <div class="zh-label">焦点小组访谈反馈</div>
+        <div class="project-section">
+            <p><strong>Feedback 1 😊:</strong> 'The lessons were fun and helpful!'</p>
+            <p><strong>Feedback 2 ☹:</strong> 'There weren't many chances to practise with native speakers.'</p>
+            <p><strong>Feedback 3 😡:</strong> 'Classes were WAY TOO SHORT!'</p>
+        </div>
+        <textarea class="blank-input" rows="6" placeholder="Report the qualitative feedback tactfully here...&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>Completed Parts of the Report</h2>
+        <div class="zh-label">报告已完成部分</div>
+
+        <div class="project-section">
+            <h3>1. Introduction</h3>
+            <p style="font-size:0.93em; color:#444;">The non-Chinese speaking (NCS) students who are new to Hong Kong often face challenges in integrating due to language barriers. The mini-project, 'Cantonese for All', aims to help these students learn Cantonese to improve their daily interactions and community integration. This report discusses the effectiveness of the project and provides recommendations for future initiatives.</p>
+        </div>
+
+        <div class="project-section">
+            <h3>2. Methodology</h3>
+            <p><strong>2.1 Participants</strong></p>
+            <p style="font-size:0.93em; color:#444;">Two instructors were recruited to deliver the course, while 50 new NCS students from Hong Kong Higher Institute were invited to participate in the course.</p>
+            <p style="margin-top:8px;"><strong>2.2 Implementation</strong></p>
+            <p style="font-size:0.93em; color:#444;">From October to November 202-, twelve 1-hour lessons were conducted by the instructors. These lessons focused on teaching the NCS students useful daily Cantonese expressions, such as greetings, ordering food, and asking for directions, in addition to some highlights of local culture.</p>
+            <p style="margin-top:8px;"><strong>2.3 Evaluation</strong></p>
+            <p style="font-size:0.93em; color:#444;">To collect data for evaluation, the NCS students completed a pre-project survey in September 202-. In December, they took part in a post-project survey and focus group interviews to share their experiences.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Continue with the following sections:</h2>
+        <div class="zh-label">请继续撰写以下部分：</div>
+        <ul>
+            <li><strong>Findings</strong> — Describe salient quantitative and qualitative findings</li>
+            <li><strong>Discussion</strong> — Discuss implications of findings; evaluate project effectiveness</li>
+            <li><strong>Conclusion</strong> — Summarise overall impact</li>
+            <li><strong>Recommendations</strong> — Regular courses, speaking exercises with native speakers, plus one recommendation based on Feedback 3</li>
+        </ul>
+        <div class="zh-text"> findings（研究结果）— 描述重要的量化和质性研究结果 | Discussion（讨论）— 讨论研究结果的意义；评估项目成效 | Conclusion（结论）— 总结整体影响 | Recommendations（建议）— 定期课程、与母语者进行口语练习， plus基于反馈3的一项建议</div>
+
+        <textarea class="blank-input" rows="15" placeholder="3. Findings&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;4. Discussion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;5. Conclusion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;6. Recommendations&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+    </div>
+</div>
+
+<!-- ==================== TAB 3: Revision Package II ==================== -->
+<div class="tab-content" id="tab3">
+    <div class="card">
+        <h2>Revision Package II</h2>
+        <div class="zh-label">复习单元二</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Professional Workplace Communication: Proposal and Report Writing (LAN4103)</p>
+        <div class="zh-text">专业职场沟通：提案及报告写作（LAN4103）</div>
+    </div>
+
+    <div class="card">
+        <h2>Learning Objectives</h2>
+        <div class="zh-label">学习目标</div>
+        <p style="font-size:0.93em; color:#555;">By the end of this unit, you will be able to:</p>
+        <ul>
+            <li>describe quantitative and qualitative findings</li>
+            <li>report negative comments tactfully</li>
+            <li>discuss the implications of findings to evaluate project effectiveness</li>
+            <li>conclude an evaluation report</li>
+            <li>make and elaborate on recommendations based on evaluation findings for project enhancement</li>
+        </ul>
+        <div class="zh-text">学完本单元后，你将能够：描述量化和质性研究结果；巧妙地报告负面评论；讨论研究结果的意义以评估项目成效；总结评估报告；基于评估结果提出并阐述建议以改进项目。</div>
+    </div>
+
+    <!-- ===== TASK 1 ===== -->
+    <div class="card">
+        <h2>Task 1: Nano Flats Interior Design Masterclass</h2>
+        <div class="zh-label">任务一：纳米楼室内设计大师班</div>
+        <p style="font-size:0.93em; color:#555;">You are Angel Chan, a training assistant at Hong Kong Interior Design Association. You have conducted a mini-project to equip practicing interior designers with specialised skills in compact living design.</p>
+        <p style="font-size:0.93em; color:#555; margin-top:6px;">You are required to write an evaluation report to the manager discussing the effectiveness of the project and giving recommendations for the way forward. Using the notes and data you have compiled, complete the evaluation report with appropriate elaboration.</p>
+        <div class="zh-text">你是香港室内设计协会的培训助理陈Angel。你开展了一个迷你项目，为在职室内设计师提供紧凑生活设计的专业技能。你须向经理撰写一份评估报告，讨论项目成效并提出建议。</div>
+    </div>
+
+    <div class="card">
+        <h2>Evaluation Report on the 'Nano Flats Interior Design Masterclass' Project</h2>
+        <div class="zh-label">「纳米楼室内设计大师班」项目评估报告</div>
+
+        <div class="project-section">
+            <h3>1. Introduction</h3>
+            <p style="font-size:0.93em; color:#444;">Hong Kong's dense urban environment has led to a rise in micro flats under 200 square feet, driving demand for innovative small-space interior design solutions that maximise space and enhance living quality. This mini-project, 'Nano Flats Interior Design Masterclass', aims to equip practicing interior designers with specialised skills in compact living design through a series of courses, and to promote career development in the small-space design sector. The purpose of this report is to evaluate the effectiveness of the project and provide recommendations for future enhancement.</p>
+        </div>
+
+        <div class="project-section">
+            <h3>2. Methodology</h3>
+            <p><strong>2.1 Participants</strong></p>
+            <p style="font-size:0.93em; color:#444;">Three interior designers specialising in small-space solutions were recruited as instructors, while 30 interior designers from the Hong Kong Interior Design Association enrolled in the masterclass.</p>
+            <p style="margin-top:8px;"><strong>2.2 Implementation</strong></p>
+            <p style="font-size:0.93em; color:#444;">From April to May 202-, five structured courses were delivered by the instructors. These sessions covered the core principles of compact space design, featured local case studies, and demonstrated advanced applications of Computer-Aided Design (CAD) software tailored for small-space interiors. In particular, the instructors guided participants in designing simple and space-saving furniture, such as foldable shelves and built-in wall niches for storage and display.</p>
+            <p style="margin-top:8px;"><strong>2.3 Evaluation</strong></p>
+            <p style="font-size:0.93em; color:#444;">To collect data for evaluation, the participants had been invited to take part in a pre-project survey in March 202- about their knowledge in small-space design and future study plans. In June 202-, a post-project survey using the same questionnaire was conducted, and focus group interviews were arranged with participants to assess the project's impact.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Findings</h2>
+        <div class="zh-label">三、研究结果</div>
+
+        <div class="project-section">
+            <h3>Results of the pre- and post-project surveys</h3>
+            <img src="images/image1.png" alt="Q1 CAD software proficiency - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <img src="images/image2.png" alt="Q2 Interest in further studies - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <p style="font-size:0.93em; color:#555;">In the post-project survey, <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea> participants <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea> compared to 0% before the project.</p>
+            <p style="margin-top:8px;">Nevertheless, <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
+            <textarea class="blank-input" rows="3" placeholder="__________________________________________________________________________________________"></textarea>
+        </div>
+
+        <div class="project-section">
+            <h3>Focus group interview results</h3>
+            <img src="images/image3.png" alt="Focus group feedback messages" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <p style="font-size:0.93em; color:#555;">Most respondents appreciated that <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
+            <p style="margin-top:8px;">Moreover, a few of them <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
+            <textarea class="blank-input" rows="3" placeholder="__________________________________________________________________________________________"></textarea>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Discussion</h2>
+        <div class="zh-label">四、讨论</div>
+        <p style="font-size:0.93em; color:#555;">The survey results clearly demonstrate that the masterclass <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
+        <p style="margin-top:8px;">participating interior designers <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
+        <p style="margin-top:8px;">Through <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
+        <textarea class="blank-input" rows="4" placeholder="__________________________________________________________________________________________"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>5. Conclusion</h2>
+        <div class="zh-label">五、结论</div>
+        <p style="font-size:0.93em; color:#555;">To conclude, the project has been <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
+        <p style="margin-top:8px;">While it is obvious that we should continue with this meaningful project, some areas for improvement have been identified to achieve better outcomes.</p>
+        <textarea class="blank-input" rows="4" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>6. Recommendations</h2>
+        <div class="zh-label">六、建议</div>
+        <p style="font-size:0.93em; color:#555;">Given the benefits of the project, it is suggested that <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
+        <p style="margin-top:8px;">Additionally, <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
+        <textarea class="blank-input" rows="5" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+    </div>
+
+    <!-- ===== TASK 2 ===== -->
+    <div class="card">
+        <h2>Task 2: Visual Storytelling for Youth</h2>
+        <div class="zh-label">任务二：青少年视觉叙事</div>
+        <p style="font-size:0.93em; color:#555;">You are Will Kwok, a project assistant at Design Hong Kong. You have conducted a mini-project to enhance young people's skills in creating impactful visual narratives and equip them with essential illustration and animation techniques.</p>
+        <p style="font-size:0.93em; color:#555; margin-top:6px;">You are required to write an evaluation report to your project manager discussing the effectiveness of the project and giving recommendations for the way forward. The first half of the report has been completed. Using the notes and data you have compiled, complete the rest of the report in <strong>300-350 words</strong>, with appropriate elaboration on the discussion, conclusion, and recommendations. Use subtlety, tact, and sensitivity where appropriate and your own ideas as needed.</p>
+        <div class="zh-text">你是Design Hong Kong的项目助理郭Will。你开展了一个迷你项目，提升年轻人创作引人入胜的视觉叙事的能力，并为他们提供基本的插画和动画技巧。你须向项目经理撰写一份评估报告。报告的前半部分已完成。请在300-350字内完成报告的其余部分。</div>
+    </div>
+
+    <div class="card">
+        <h2>Evaluation Report on 'Visual Storytelling for Youth' Project</h2>
+        <div class="zh-label">「青少年视觉叙事」项目评估报告</div>
+
+        <div class="project-section">
+            <h3>1. Introduction</h3>
+            <p style="font-size:0.93em; color:#444;">The demand for compelling visual communication has surged in the digital media field, yet some young people find it difficult to create engaging content due to limited visual communication skills. This mini-project, 'Visual Storytelling for Youth', intends to enhance young people's skills in creating impactful visual narratives and equip them with essential illustration and animation techniques through a series of training workshops. This report reviews the effectiveness of the project and gives recommendations for the way forward.</p>
+        </div>
+
+        <div class="project-section">
+            <h3>2. Methodology</h3>
+            <p><strong>2.1 Participants</strong></p>
+            <p style="font-size:0.93em; color:#444;">Two digital arts professionals were recruited as trainers, while 25 young people from local secondary schools were invited to take part in the project.</p>
+            <p style="margin-top:8px;"><strong>2.2 Implementation</strong></p>
+            <p style="font-size:0.93em; color:#444;">From January to March 202-, six workshops were delivered by the trainers, in which they taught participants how to create storyboards, use animation software, and design visual narratives. The workshops also featured hands-on activities, allowing students to apply their skills through guided animation projects and creative exercises.</p>
+            <p style="margin-top:8px;"><strong>2.3 Evaluation</strong></p>
+            <p style="font-size:0.93em; color:#444;">To evaluate the project, a pre-project survey had been administered in December 202- to learn more about participants' visual communication skills and perceptions. In April 202-, a post-project survey and focus group interviews were conducted to allow participants to share their experiences.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Complete the evaluation report in 300-350 words</h2>
+        <div class="zh-label">请在300-350字内完成评估报告</div>
+
+        <div class="project-section">
+            <h3>3. Findings</h3>
+            <p style="font-size:0.93em; color:#555; font-style:italic;">Describing quantitative and qualitative findings / Reporting negative feedback tactfully</p>
+            <img src="images/image4.png" alt="Q1 Storyboard creation skills - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <img src="images/image5.png" alt="Q2 Visual storytelling importance - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <textarea class="blank-input" rows="10" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        </div>
+
+        <div class="project-section">
+            <h3>4. Discussion</h3>
+            <p style="font-size:0.93em; color:#555; font-style:italic;">Discussing the implications of the findings / Evaluating the project effectiveness</p>
+            <img src="images/image6.png" alt="Focus group feedback messages" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <textarea class="blank-input" rows="8" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        </div>
+
+        <div class="project-section">
+            <h3>5. Conclusion</h3>
+            <p style="font-size:0.93em; color:#555; font-style:italic;">Concluding and summarising the overall impact of the project and future direction</p>
+            <textarea class="blank-input" rows="7" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        </div>
+
+        <div class="project-section">
+            <h3>6. Recommendations</h3>
+            <p style="font-size:0.93em; color:#555; font-style:italic;">Recommending practical solutions or improvements based on the evaluation findings for the way forward</p>
+            <img src="images/image7.png" alt="Your notes - Discussion, Conclusion and Recommendations" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
+            <textarea class="blank-input" rows="7" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        </div>
+    </div>
+</div>
+
+    </div><!-- /.container -->
+
+    <script>
+        let showZh = true;
+        function toggleLang() {
+            showZh = !showZh;
+            document.body.classList.toggle('hide-zh', !showZh);
+        }
+        function switchTab(idx) {
+            document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
+            document.querySelectorAll('.tab-content').forEach((c, i) => c.classList.toggle('active', i === idx));
+        }
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = el.scrollHeight + 'px';
+        }
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('textarea.blank-input').forEach(function(ta) {
+                ta.addEventListener('input', function() { autoResize(this); });
+                autoResize(ta);
+            });
+        });
+    </script>
+</body>
+</html>
