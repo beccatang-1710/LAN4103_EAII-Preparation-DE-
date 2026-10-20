@@ -72,6 +72,48 @@
         .vocab-box strong { color: #3a7a2a; }
         .formula-box { background: #f0f7ed; border: 1px solid #c3e6b5; border-radius: 6px; padding: 14px 18px; margin: 10px 0; font-size: 0.93em; }
         .formula-box em { color: #5a9e3e; font-weight: 600; font-style: normal; }
+
+        .zh-inline { color: #888; font-size: 0.92em; }
+        body.hide-zh .zh-inline, body.hide-zh .zh-inline-cell { display: none; }
+        .zh-inline-cell { color: #888; font-size: 0.9em; }
+        .answer-block { font-size: 0.93em; color: #2f5d22; background: #eaf7e4; border-left: 4px solid #5a9e3e; padding: 10px 14px; margin: 8px 0; border-radius: 3px; }
+        .q-text { font-size: 0.93em; color: #555; margin-bottom: 6px; }
+        .sticky { background: #fff7a8; color: #8a1c1c; font-weight: 700; font-style: italic; padding: 10px 14px; margin: 12px 0; border-radius: 3px; box-shadow: 2px 3px 8px rgba(0,0,0,0.18); font-size: 0.9em; max-width: 340px; transform: rotate(-1deg); }
+        .sticky.inline { margin-left: 8px; }
+        .bc { margin: 8px 0 6px; padding: 12px 14px; border: 1px solid #e3e3e3; border-radius: 8px; background: #fafafa; }
+        .bc-title { font-weight: 600; font-size: 0.9em; color: #3a7a2a; margin-bottom: 4px; }
+        .bc-legend { font-size: 0.8em; color: #666; margin-bottom: 8px; }
+        .bc-key { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: middle; margin-right: 4px; }
+        .bc-key.pre, .bc-bar.pre { background: #1f77b4; }
+        .bc-key.post, .bc-bar.post { background: #ff7f0e; }
+        .bc-row { display: grid; grid-template-columns: 150px 1fr; gap: 10px; align-items: center; padding: 6px 8px; border-radius: 6px; margin-bottom: 4px; }
+        .bc-row.hl { outline: 2px solid #1b3a6b; background: #f1f5fb; }
+        .bc-label { font-size: 0.85em; color: #444; font-weight: 600; }
+        .bc-line { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+        .bc-bar { display: inline-block; height: 14px; border-radius: 2px; min-width: 3px; }
+        .bc-val { font-size: 0.8em; color: #333; font-weight: 600; }
+        .notes-box { border: 1px solid #ccc; border-radius: 6px; padding: 12px 16px; margin-top: 14px; background: #fff; font-size: 0.93em; }
+        .notes-box h3 { font-size: 0.98em; color: #3a7a2a; margin-bottom: 6px; text-decoration: underline; }
+        .notes-box ul { margin: 2px 0 8px 20px; }
+        .fb-table th { width: 33%; }
+        .fb-table td { vertical-align: top; }
+        @media (max-width: 600px) { .bc-row { grid-template-columns: 1fr; } }
+
+        .fill { display: inline; min-width: 70px; border-bottom: 2px dashed #5a9e3e; background: #f8fdf6; padding: 1px 5px; border-radius: 3px 3px 0 0; outline: none; color: #1d3f14; font-weight: 600; line-height: 1.9; word-break: break-word; }
+        .fill:empty::before { content: attr(data-ph); color: #9aa89a; font-weight: 400; font-style: italic; }
+        .fill:focus { background: #eaf7e4; border-bottom-style: solid; }
+        .fill.long { display: block; margin: 5px 0 6px; min-height: 2em; padding: 4px 8px; border: 1px dashed #b5d6a7; border-bottom: 2px dashed #5a9e3e; }
+        .tpl-list { margin: 6px 0 8px 22px; font-size: 0.93em; color: #444; }
+        .tpl-list li { margin-bottom: 10px; line-height: 2; }
+        .tpl-or { font-size: 0.9em; color: #777; margin-top: 2px; }
+        .tpl-note { font-size: 0.85em; color: #888; font-style: italic; }
+
+        .bk { display: inline-block; background: #5a9e3e; color: #fff; font-size: 0.72em; font-weight: 700; padding: 1px 8px; border-radius: 10px; margin: 2px 3px 0 0; white-space: nowrap; font-style: normal; }
+        .databank > summary { cursor: pointer; font-weight: 600; color: #3a7a2a; background: #eaf7e4; border: 1px solid #c3e6b5; border-radius: 6px; padding: 9px 14px; font-size: 0.93em; }
+        .databank[open] > summary { margin-bottom: 10px; }
+        table.dk td { vertical-align: top; font-size: 0.86em; }
+        table.dk .dk-n { font-weight: 700; color: #3a7a2a; text-align: center; background: #f5fbf2; }
+        table.dk .dk-fill { color: #1d3f14; }
     </style>
 </head>
 <body>
@@ -91,6 +133,9 @@
             <button class="tab-btn" onclick="switchTab(1)">Unit 9: Qualitative Findings</button>
             <button class="tab-btn" onclick="switchTab(2)">Clinic Task 1: Cantonese for All</button>
             <button class="tab-btn" onclick="switchTab(3)">Revision Package II</button>
+            <button class="tab-btn" onclick="switchTab(4)">Revision Guide: Korean Connect</button>
+            <button class="tab-btn" onclick="switchTab(5)">Supplementary: V-Music Library</button>
+            <button class="tab-btn" onclick="switchTab(6)">Supplementary: AdVision Studio</button>
         </div>
     </div>
 
@@ -532,7 +577,7 @@
 
     <div class="card">
         <h2>Results of the Pre- and Post-Project Surveys</h2>
-        <div class="zh-label">项目前后调查结果</div>
+        <div class="zh-label">项目前后调查结果</div><p class="tpl-note" style="margin:6px 0 8px;">Green tags show which blank(s) of the template each salient data point fills. <span class="zh-inline">绿色标签表示该数据适用于模板中的哪些空格。</span></p>
         <div class="findings-highlight">
             <strong>Sam, pls cover these salient points in the report / Pls highlight only salient points</strong>
         </div>
@@ -608,6 +653,8 @@
         <div class="zh-text">学完本单元后，你将能够：描述量化和质性研究结果；巧妙地报告负面评论；讨论研究结果的意义以评估项目成效；总结评估报告；基于评估结果提出并阐述建议以改进项目。</div>
     </div>
 
+    <div class="card"><div class="findings-highlight" style="margin:0;"><strong>Teacher&rsquo;s note:</strong> Please revise the key communicative functions covered in Units 6&ndash;11, including describing quantitative and qualitative data, connecting ideas, making recommendations, etc., with students before attempting the tasks.</div><div class="zh-text">教师备注：在学生尝试任务前，请先温习第6至11单元涵盖的主要沟通功能，包括描述量化及质性数据、连接想法、提出建议等。</div></div>
+
     <!-- ===== TASK 1 ===== -->
     <div class="card">
         <h2>Task 1: Nano Flats Interior Design Masterclass</h2>
@@ -638,50 +685,109 @@
     </div>
 
     <div class="card">
-        <h2>3. Findings</h2>
-        <div class="zh-label">三、研究结果</div>
+        <h2>Task 1 &mdash; Results of the Pre- and Post-Project Surveys</h2>
+        <div class="zh-label">任务一 — 项目前后调查结果</div><p class="tpl-note" style="margin:6px 0 8px;">Green tags show which blank(s) of the template each salient data point fills. <span class="zh-inline">绿色标签表示该数据适用于模板中的哪些空格。</span></p>
+        <p class="q-text">Q1 How proficient are you in applying advanced CAD software skills to design small-space solutions?</p><div class="zh-text">问题1：你在运用高级CAD软件技能设计小型空间方案方面有多熟练？</div>
+        <div class="bc"><div class="bc-title">Q1 &mdash; Proficiency in applying advanced CAD software skills <span class="zh-inline">问题1 — 运用高级CAD软件技能的熟练程度</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row hl"><div class="bc-label">Highly proficient <span class="zh-inline">非常熟练</span><br><span class="bk">Blanks 1–3</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:10%"></span><span class="bc-val">10%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:30%"></span><span class="bc-val">30%</span></div></div></div><div class="bc-row hl"><div class="bc-label">Proficient <span class="zh-inline">熟练</span><br><span class="bk">Blanks 4–6</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:20%"></span><span class="bc-val">20%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:60%"></span><span class="bc-val">60%</span></div></div></div><div class="bc-row"><div class="bc-label">Somewhat proficient <span class="zh-inline">略为熟练</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:10%"></span><span class="bc-val">10%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:10%"></span><span class="bc-val">10%</span></div></div></div><div class="bc-row"><div class="bc-label">Not proficient <span class="zh-inline">不熟练</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:60%"></span><span class="bc-val">60%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:0.8%"></span><span class="bc-val">0%</span></div></div></div></div>
+        <div class="sticky inline">Angel, pls highlight these salient points in the report <span class="zh-inline">Angel，请在报告中强调这些重点</span></div>
+        <p class="q-text" style="margin-top:16px;">Q2 Are you interested in pursuing further studies in small-space design?</p><div class="zh-text">问题2：你是否有兴趣修读小型空间设计的进修课程？</div>
+        <div class="bc"><div class="bc-title">Q2 &mdash; Interest in pursuing further studies in small-space design <span class="zh-inline">问题2 — 对修读小型空间设计进修课程的兴趣</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row"><div class="bc-label">Very interested <span class="zh-inline">非常有兴趣</span><br><span class="bk">Blanks 7–9 (alt.)</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:0.8%"></span><span class="bc-val">0%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:20%"></span><span class="bc-val">20%</span></div></div></div><div class="bc-row"><div class="bc-label">Interested <span class="zh-inline">有兴趣</span><br><span class="bk">Blanks 7–9</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:20%"></span><span class="bc-val">20%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:80%"></span><span class="bc-val">80%</span></div></div></div><div class="bc-row"><div class="bc-label">Not interested at all <span class="zh-inline">完全没有兴趣</span><br><span class="bk">Blanks 10–12</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:80%"></span><span class="bc-val">80%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:0.8%"></span><span class="bc-val">0%</span></div></div></div></div>
+        <div class="sticky inline">Pls highlight only the salient points <span class="zh-inline">请只强调重点</span></div>
+    </div>
 
-        <div class="project-section">
-            <h3>Results of the pre- and post-project surveys</h3>
-            <img src="images/image1.png" alt="Q1 CAD software proficiency - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <img src="images/image2.png" alt="Q2 Interest in further studies - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <p style="font-size:0.93em; color:#555;">In the post-project survey, <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea> participants <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea> compared to 0% before the project.</p>
-            <p style="margin-top:8px;">Nevertheless, <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
-            <textarea class="blank-input" rows="3" placeholder="__________________________________________________________________________________________"></textarea>
+    <div class="card">
+        <h2>Task 1 &mdash; Focus Group Interview Results and Your Notes</h2>
+        <div class="zh-label">任务一 — 焦点小组访谈结果及你的笔记</div>
+        <table class="form-table fb-table"><tr><th>Feedback 1</th><th>Feedback 2</th><th>Feedback 3</th></tr><tr><td>&ldquo;The class content is very up to date and relevant to HK&rsquo;s housing market! I know what clients want in small flats better!&rdquo; 🤣<br><span class="bk">Blank 13</span><div class="zh-text">「课程内容非常贴近最新趋势，并与香港的房屋市场息息相关！我更了解客户对小型单位的需求了！」</div></td><td>&ldquo;It&rsquo;s a pity there aren&rsquo;t any visits to real small flats. Only seeing photos in class is a bit dry.&rdquo; 👎<br><span class="bk">Blanks 14, 22</span><div class="zh-text">「可惜没有参观真正的小型单位。课堂上只看相片有点枯燥。」</div></td><td>&ldquo;What&rsquo;s the point of a MASTER class without any recognition as a real master designer?&rdquo; 😡<br><span class="bk">Blanks 15, 23</span><div class="zh-text">「没有任何大师设计师认可的『大师班』有什么意义？」</div></td></tr></table>
+        <div class="notes-box"><h3>Your notes</h3><p><strong>Discussion of findings</strong></p><ul><li>Masterclass &rarr; enhance participants&rsquo; capabilities in small-space design and inspire interest <span class="bk">Blanks 16–17</span></li><li>Well-structured courses and CAD training &rarr; solid theoretical foundation and practical skills <span class="bk">Blanks 18–19</span></li></ul><p><strong>Conclusion</strong></p><ul><li>Successful (nurture more professionals in small-space design sector to meet demands in Hong Kong) <span class="bk">Blank 20</span></li></ul><p><strong>Recommendations</strong></p><ul><li>Online masterclass <span class="bk">Blank 21</span></li><li>Visits to nano flats <span class="bk">Blank 22</span></li><li><strong><em>[Pls give one recommendation based on Feedback 3]</em></strong> <span class="bk">Blank 23</span></li></ul></div><div class="zh-text">你的笔记。讨论：大师班 → 提升参加者在小型空间设计方面的能力，并激发兴趣；结构完善的课程及CAD培训 → 扎实的理论基础及实用技能。结论：成功（在香港培育更多小型空间设计专业人才，以满足需求）。建议：网上大师班；参观纳米楼；[根据反馈3提出一项建议]。</div><div class="sticky inline">Angel, pls elaborate on these <span class="zh-inline">Angel，请详细阐述这些内容</span></div>
+    </div>
+
+    <div class="card" id="tpl-card-t3a">
+        <h2>Template for EAII_LAN4103: Fill in the Blanks</h2>
+        <div class="zh-label">EAII_LAN4103 模板：填写空格（填写内容后空格会自动扩展）</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Click on a blank and type. Each blank grows as you write. Use the numbered hints, then compare your answer with the model answer below.</p>
+        <div class="vocab-box" style="font-size:0.88em;"><strong>Hints:</strong> (1), (3), (4): use numerical/general description (e.g. x% / a majority of, etc.) &nbsp;|&nbsp; (2), (5): use reported speech &nbsp;|&nbsp; <em>rose</em> / <em>fell</em>: use past tense verbs
+            <div class="zh-text">提示：(1)、(3)、(4) 使用数字／概括性描述（例如 x%／大多数等）；(2)、(5) 使用转述语；rose／fell 等动词使用过去式。</div></div>
+
+        <div class="project-section tpl">
+            <h3>Findings <span class="zh-inline">研究结果</span></h3>
+            <ul class="tpl-list">
+                <li>After the project, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 1" data-ph="(1) x% / a majority of"></span> of the respondents said that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 2" data-ph="(2) reported speech"></span>, which was <em>a significant increase / remarkable rise / sharp rise / great increase</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 3" data-ph="(3) x% / a majority of"></span> before the project.</li>
+                <li><span class="fill" contenteditable="true" role="textbox" aria-label="Blank 4" data-ph="(4) x% / a majority of"></span> of them reported that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 5" data-ph="(5) reported speech"></span>, compared to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 6" data-ph="(6) x%"></span> before.</li>
+                <li>Moreover, the number of respondents who <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 7" data-ph="(7) description"></span> <em>rose</em> <small style="color:#888">(past tense verb)</small> sharply from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 8" data-ph="(8) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 9" data-ph="(9) x%"></span>, while those <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 10" data-ph="(10) description"></span> <em>fell</em> <em>drastically / remarkably</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 11" data-ph="(11) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 12" data-ph="(12) x%"></span>.</li>
+                <li>It was also found that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 13" data-ph="(13) subject + verb"></span></li>
+                <li>However, some respondents <em>mentioned / stated / reported</em> that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 14" data-ph="(14) subject + verb"></span></li>
+                <li>Furthermore, some of them suggested that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 15" data-ph="(15) subject + verb"></span>
+                    <div class="tpl-or">(OR: some of them expressed concerns about + noun)</div></li>
+            </ul>
+            <p class="tpl-note">(* For sentence 6, use a neutral and professional wording to keep the tone respectful and constructive)</p>
+            <div class="zh-text">（*第6句请使用中立、专业的措辞，保持尊重及具建设性的语气。或：some of them expressed concerns about + 名词）</div>
         </div>
 
-        <div class="project-section">
-            <h3>Focus group interview results</h3>
-            <img src="images/image3.png" alt="Focus group feedback messages" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <p style="font-size:0.93em; color:#555;">Most respondents appreciated that <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
-            <p style="margin-top:8px;">Moreover, a few of them <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
-            <textarea class="blank-input" rows="3" placeholder="__________________________________________________________________________________________"></textarea>
+        <div class="project-section tpl">
+            <h3>Discussion <span class="zh-inline">讨论</span></h3>
+            <ul class="tpl-list">
+                <li>The findings suggest that the <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 16" data-ph="(16) subject"></span> <em>has / have</em> effectively <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 17" data-ph="(17) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+                <li>Moreover, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank ?" data-ph="(?) participants / ?????"></span> have benefited from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 18" data-ph="(18) noun phrase"></span>, which <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 19" data-ph="(19) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+            </ul>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Conclusion <span class="zh-inline">结论</span></h3>
+            <ul class="tpl-list">
+                <li>To conclude, the project has been <em>successful / effective</em> in <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 20" data-ph="(20) Verb + -ing"></span></li>
+                <li>While similar projects should continue to be offered, there are some areas that could be improved for better results.</li>
+            </ul>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Recommendations <span class="zh-inline">建议</span></h3>
+            <ul class="tpl-list">
+                <li>In light of the positive outcomes, it is recommended <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 21" data-ph="(21) what"></span> could be offered to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank target" data-ph="(target) target audience"></span> so that <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>Moreover, it is advisable that <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 22" data-ph="(22) what"></span> should be <em>arranged / provided / developed</em> to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>In addition, we should <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 23" data-ph="(23) action"></span> in order to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+            </ul>
         </div>
     </div>
 
     <div class="card">
-        <h2>4. Discussion</h2>
-        <div class="zh-label">四、讨论</div>
-        <p style="font-size:0.93em; color:#555;">The survey results clearly demonstrate that the masterclass <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
-        <p style="margin-top:8px;">participating interior designers <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea>.</p>
-        <p style="margin-top:8px;">Through <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
-        <textarea class="blank-input" rows="4" placeholder="__________________________________________________________________________________________"></textarea>
-    </div>
-
+        <h2>Task 1 Data Bank: Which Data Goes into Which Blank</h2>
+        <div class="zh-label">数据对照：哪些数据填入哪个空格</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Each numbered blank in the template is matched to the data above (survey charts, focus group feedback and your notes). Expand the table to check.</p>
+        <details class="databank" style="margin-top:8px;"><summary>Show data for each blank (teacher key) <span class="zh-inline">显示各空格所需数据（教师参考）</span></summary>
+<div style="overflow-x:auto;"><table class="form-table dk"><tr><th style="width:62px;">Blank<div class="zh-label">空格</div></th><th style="width:200px;">Where the data comes from<div class="zh-label">数据来源</div></th><th style="width:230px;">Data to use<div class="zh-label">所需数据</div></th><th>Suggested fill (from the possible response)<div class="zh-label">建议填写内容</div></th></tr>
+<tr><td class="dk-n">1</td><td>Q1 chart, <em>Highly proficient</em> (post)</td><td>Post-project 30%</td><td class="dk-fill">almost one-third (30%)</td></tr><tr><td class="dk-n">2</td><td>Q1 question wording</td><td>Applying advanced CAD software skills to design small-space solutions</td><td class="dk-fill">regarded themselves as highly proficient in applying advanced CAD software skills to design small-space solutions</td></tr><tr><td class="dk-n">3</td><td>Q1 chart, <em>Highly proficient</em> (pre)</td><td>Pre-project 10%</td><td class="dk-fill">10%</td></tr><tr><td class="dk-n">4</td><td>Q1 chart, <em>Proficient</em> (post)</td><td>Post-project 60%</td><td class="dk-fill">over half (60%)</td></tr><tr><td class="dk-n">5</td><td>Q1 question wording</td><td>Proficient in applying advanced CAD software skills</td><td class="dk-fill">reported being proficient in this area</td></tr><tr><td class="dk-n">6</td><td>Q1 chart, <em>Proficient</em> (pre)</td><td>Pre-project 20%</td><td class="dk-fill">20% <em>(a significant increase from just 20% before)</em></td></tr><tr><td class="dk-n">7</td><td>Q2 chart, <em>Interested</em></td><td>Interested in pursuing further studies in small-space design</td><td class="dk-fill">were interested in pursuing further studies in small-space design <em>(alt.: &ldquo;very interested&rdquo; 0% &rarr; 20%, one-fifth showed strong interest)</em></td></tr><tr><td class="dk-n">8</td><td>Q2 chart, <em>Interested</em> (pre)</td><td>Pre-project 20%</td><td class="dk-fill">20%</td></tr><tr><td class="dk-n">9</td><td>Q2 chart, <em>Interested</em> (post)</td><td>Post-project 80%</td><td class="dk-fill">80% (over three-quarters)</td></tr><tr><td class="dk-n">10</td><td>Q2 chart, <em>Not interested at all</em></td><td>Not interested in further studies</td><td class="dk-fill">were not interested at all</td></tr><tr><td class="dk-n">11</td><td>Q2 chart, <em>Not interested at all</em> (pre)</td><td>Pre-project 80%</td><td class="dk-fill">80%</td></tr><tr><td class="dk-n">12</td><td>Q2 chart, <em>Not interested at all</em> (post)</td><td>Post-project 0%</td><td class="dk-fill">0%</td></tr><tr><td class="dk-n">13</td><td>Feedback 1 🤣</td><td>Class content up to date and relevant to HK housing market</td><td class="dk-fill">the class content was highly relevant to Hong Kong&rsquo;s housing market and helped them stay up to date with market trends</td></tr><tr><td class="dk-n">14</td><td>Feedback 2 👎</td><td>No visits to real small flats; only photos (say it tactfully)</td><td class="dk-fill">the courses were too classroom-oriented and lacked real-world exposure</td></tr><tr><td class="dk-n">15</td><td>Feedback 3 😡</td><td>No recognition as a master designer (say it tactfully)</td><td class="dk-fill">some also expected formal recognition upon completing the masterclass</td></tr><tr><td class="dk-n">16</td><td>Notes: Discussion, 1st point</td><td>Masterclass</td><td class="dk-fill">the masterclass</td></tr><tr><td class="dk-n">17</td><td>Notes: Discussion, 1st point</td><td>&rarr; enhance participants&rsquo; capabilities in small-space design and inspire interest</td><td class="dk-fill">enhanced participants&rsquo; capabilities in small-space design and inspired a deeper interest in the field</td></tr><tr><td class="dk-n">18</td><td>Notes: Discussion, 2nd point</td><td>Well-structured courses and CAD training</td><td class="dk-fill">well-structured courses and CAD training <em>(subject: participating interior designers)</em></td></tr><tr><td class="dk-n">19</td><td>Notes: Discussion, 2nd point</td><td>&rarr; solid theoretical foundation and practical skills</td><td class="dk-fill">have developed a solid theoretical foundation and practical skills in designing innovative solutions for compact living environments. <em>Elaboration:</em> now better equipped to create multifunctional layouts, integrate built-in storage features, and optimise spatial flow.</td></tr><tr><td class="dk-n">20</td><td>Notes: Conclusion</td><td>Successful &mdash; nurture more professionals in small-space design sector to meet demands in Hong Kong</td><td class="dk-fill">nurturing more professionals in the small-space design sector to meet the demands of urban living in Hong Kong</td></tr><tr><td class="dk-n">21</td><td>Notes: Recommendations, 1st point</td><td>Online masterclass</td><td class="dk-fill">the masterclass could also be offered online <em>[target audience: interior designers with busy schedules]</em> &hellip; while previous participants could serve as mentors to support new learners</td></tr><tr><td class="dk-n">22</td><td>Notes: Recommendations, 2nd point + Feedback 2</td><td>Visits to nano flats</td><td class="dk-fill">arrange site visits to nano flat renovations in Hong Kong to expose participants to real-world applications and design constraints</td></tr><tr><td class="dk-n">23</td><td>Feedback 3 (your own recommendation)</td><td>Wants recognition as a real master designer</td><td class="dk-fill">issue an official certificate upon completion of the masterclass to recognise participants&rsquo; efforts and enhance their employment prospects in this sector</td></tr></table></div><p class="tpl-note" style="margin-top:8px;">The teacher version does not number the Task 1 data, so these blank numbers follow the same pattern as Task 2. The notes say &ldquo;Accept any possible answers&rdquo; for the Recommendations.</p></details></div>
+    
     <div class="card">
-        <h2>5. Conclusion</h2>
-        <div class="zh-label">五、结论</div>
-        <p style="font-size:0.93em; color:#555;">To conclude, the project has been <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
-        <p style="margin-top:8px;">While it is obvious that we should continue with this meaningful project, some areas for improvement have been identified to achieve better outcomes.</p>
-        <textarea class="blank-input" rows="4" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
-    </div>
-
-    <div class="card">
-        <h2>6. Recommendations</h2>
-        <div class="zh-label">六、建议</div>
-        <p style="font-size:0.93em; color:#555;">Given the benefits of the project, it is suggested that <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
-        <p style="margin-top:8px;">Additionally, <textarea class="blank-input" rows="2" style="display:inline; width:80%;" placeholder="______________________________________________________________________________"></textarea></p>
-        <textarea class="blank-input" rows="5" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        <h2>Task 1 &mdash; Possible Response</h2>
+        <div class="zh-label">任务一 — 参考回应</div>
+        <div class="project-section"><h3>3. Findings <span class="zh-inline">研究结果</span></h3>
+        <p class="answer-block">In the post-project survey, almost one-third of the participants regarded themselves as highly proficient in applying advanced CAD software skills to design small-space solutions, compared to only 10% before the project. Over half of them reported being proficient in this area, which was a significant increase from just 20% before. Nevertheless, over three-quarters expressed interest in pursuing further studies in small-space design, whereas one-fifth showed strong interest.</p><div class="zh-text">在项目后调查中，近三分之一的参与者认为自己非常熟练地运用高级CAD软件技能设计小型空间方案，而项目前仅为10%。超过半数的人表示自己在这方面熟练，较项目前仅20%有显著增加。然而，超过四分之三的人表示有兴趣修读小型空间设计的进修课程，其中五分之一表示非常有兴趣。</div>
+        <p class="answer-block">Most respondents appreciated that the class content was highly relevant to Hong Kong&rsquo;s housing market and helped them stay up to date with market trends. Moreover, a few of them said the courses were too classroom-oriented and lacked real-world exposure. Some also expected formal recognition upon completing the masterclass.</p><div class="zh-text">大部分受访者赞赏课程内容与香港房屋市场高度相关，并帮助他们紧贴市场趋势。此外，少数人表示课程过于以课堂为主，缺乏真实场景的接触。部分人亦期望完成大师班后获得正式认可。</div></div>
+        <div class="project-section"><h3>4. Discussion <span class="zh-inline">讨论</span></h3>
+        <p class="answer-block">The survey results clearly demonstrate that the masterclass has effectively enhanced participants&rsquo; capabilities in small-space design and inspired a deeper interest in the field. Through well-structured courses and CAD training, participating interior designers have developed a solid theoretical foundation and practical skills in designing innovative solutions for compact living environments. As a result, they are now better equipped to create multifunctional layouts, integrate built-in storage features, and optimise spatial flow.</p><div class="zh-text">调查结果清楚显示，大师班有效提升了参加者在小型空间设计方面的能力，并激发了他们对此领域更深的兴趣。透过结构完善的课程及CAD培训，参加的室内设计师已建立扎实的理论基础及实用技能，能设计适用于紧凑居住环境的创新方案。因此，他们现在更有能力创造多功能布局、融入内置储物功能，并优化空间流动。</div></div>
+        <div class="project-section"><h3>5. Conclusion <span class="zh-inline">结论</span></h3>
+        <p class="answer-block">To conclude, the project has been successful in nurturing more professionals in the small-space design sector to meet the demands of urban living in Hong Kong. While it is obvious that we should continue with this meaningful project, some areas for improvement have been identified to achieve better outcomes.</p><div class="zh-text">总括而言，该项目成功培育了更多小型空间设计专业人才，以满足香港都市生活的需求。尽管我们显然应继续推行这项有意义的计划，但已发现一些需要改进的地方，以取得更好的成果。</div></div>
+        <div class="project-section"><h3>6. Recommendations <span class="zh-inline">建议</span></h3>
+        <p class="answer-block">Given the benefits of the project, it is suggested that the masterclass could also be offered online to accommodate interior designers with busy schedules, while previous participants could serve as mentors to support new learners.</p><div class="zh-text">鉴于项目的好处，建议大师班亦可以网上形式举办，以照顾工作繁忙的室内设计师，同时让之前的参加者担任导师，支持新学员。</div>
+        <p class="answer-block">Additionally, if time allows, we could arrange site visits to nano flat renovations in Hong Kong to expose participants to real-world applications and design constraints. It would be ideal if we could also issue an official certificate upon completion of the masterclass to recognise participants&rsquo; efforts and enhance their employment prospects in this sector.</p><div class="zh-text">此外，若时间许可，我们可安排参观香港的纳米楼装修项目，让参加者接触真实应用及设计限制。若能在完成大师班后颁发正式证书，以表扬参加者的努力并提升他们在此行业的就业前景，将更为理想。</div>
+        <p class="tpl-note">[Accept any possible answers.] <span class="zh-inline">接受任何合理答案。</span></p></div>
     </div>
 
     <!-- ===== TASK 2 ===== -->
@@ -714,39 +820,562 @@
     </div>
 
     <div class="card">
-        <h2>Complete the evaluation report in 300-350 words</h2>
-        <div class="zh-label">请在300-350字内完成评估报告</div>
+        <h2>Task 2 &mdash; Results of the Pre- and Post-Project Surveys</h2>
+        <div class="zh-label">任务二 — 项目前后调查结果</div><p class="tpl-note" style="margin:6px 0 8px;">Green tags show which blank(s) of the template each salient data point fills. <span class="zh-inline">绿色标签表示该数据适用于模板中的哪些空格。</span></p>
+        <p class="q-text">Q1 How would you rate your storyboard creation skills?</p><div class="zh-text">问题1：你如何评价自己制作故事板的技能？</div>
+        <div class="bc"><div class="bc-title">Q1 &mdash; Rating of storyboard creation skills <span class="zh-inline">问题1 — 故事板制作技能自评</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row hl"><div class="bc-label">Advanced <span class="zh-inline">高级</span><br><span class="bk">Blanks 1–3</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:4%"></span><span class="bc-val">4%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:76%"></span><span class="bc-val">76%</span></div></div></div><div class="bc-row hl"><div class="bc-label">Intermediate <span class="zh-inline">中级</span><br><span class="bk">Blanks 4–6</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:8%"></span><span class="bc-val">8%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:16%"></span><span class="bc-val">16%</span></div></div></div><div class="bc-row"><div class="bc-label">Basic <span class="zh-inline">基础</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:12%"></span><span class="bc-val">12%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:8%"></span><span class="bc-val">8%</span></div></div></div><div class="bc-row"><div class="bc-label">Beginner <span class="zh-inline">初学者</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:76%"></span><span class="bc-val">76%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:0.8%"></span><span class="bc-val">0%</span></div></div></div></div>
+        <div class="sticky inline">Will, pls highlight these salient points in the report <span class="zh-inline">Will，请在报告中强调这些重点</span></div>
+        <p class="q-text" style="margin-top:16px;">Q2 Do you think visual storytelling is important in communication?</p><div class="zh-text">问题2：你认为视觉叙事在沟通中重要吗？</div>
+        <div class="bc"><div class="bc-title">Q2 &mdash; Importance of visual storytelling in communication <span class="zh-inline">问题2 — 视觉叙事在沟通中的重要性</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row"><div class="bc-label">Highly important <span class="zh-inline">非常重要</span><br><span class="bk">Blanks 7–9</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:12%"></span><span class="bc-val">12%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:60%"></span><span class="bc-val">60%</span></div></div></div><div class="bc-row"><div class="bc-label">Important <span class="zh-inline">重要</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:28%"></span><span class="bc-val">28%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:32%"></span><span class="bc-val">32%</span></div></div></div><div class="bc-row"><div class="bc-label">Not important <span class="zh-inline">不重要</span><br><span class="bk">Blanks 10–12</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:60%"></span><span class="bc-val">60%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:8%"></span><span class="bc-val">8%</span></div></div></div></div>
+        <div class="sticky inline">Pls highlight only the salient points <span class="zh-inline">请只强调重点</span></div>
+    </div>
 
-        <div class="project-section">
-            <h3>3. Findings</h3>
-            <p style="font-size:0.93em; color:#555; font-style:italic;">Describing quantitative and qualitative findings / Reporting negative feedback tactfully</p>
-            <img src="images/image4.png" alt="Q1 Storyboard creation skills - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <img src="images/image5.png" alt="Q2 Visual storytelling importance - Pre vs Post" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <textarea class="blank-input" rows="10" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+    <div class="card">
+        <h2>Task 2 &mdash; Focus Group Interview Results and Your Notes</h2>
+        <div class="zh-label">任务二 — 焦点小组访谈结果及你的笔记</div>
+        <table class="form-table fb-table"><tr><th>Feedback 1</th><th>Feedback 2</th><th>Feedback 3</th></tr><tr><td>&ldquo;The trainers express themselves clearly and are never boring!&rdquo; 😁 <em>(+ve)</em><br><span class="bk">Blank 13</span><div class="zh-text">「导师表达清晰，课堂从不沉闷！」</div></td><td>&ldquo;The animation software isn&rsquo;t easy to use at all, especially within just a few lessons!&rdquo; 😅 <em>(&minus;ve)</em><br><span class="bk">Blank 14</span><div class="zh-text">「动画软件一点也不容易使用，尤其是只有几堂课！」</div></td><td>&ldquo;Feels like I&rsquo;m on my own all the way. No discussions. No project work.&rdquo; 😡 <em>(&minus;ve)</em><br><span class="bk">Blanks 15, 23</span><div class="zh-text">「感觉一路上都是自己摸索。没有讨论，没有项目实作。」</div></td></tr></table>
+        <div class="notes-box"><h3>Your notes</h3><p><strong>Discussion of findings</strong></p><ul><li>Workshops &rarr; enable young people to apply visual storytelling techniques in creative and meaningful ways <span class="bk">Blanks 16–17</span></li><li>Guided training sessions &rarr; practical skills in creating storyboards and mastering animation software <span class="bk">Blanks 18–19</span></li></ul><p><strong>Conclusion</strong></p><ul><li>Effective (enhance young people&rsquo;s visual storytelling and animation skills) <span class="bk">Blank 20</span></li></ul><p><strong>Recommendations</strong></p><ul><li>Regular workshops <span class="bk">Blank 21</span></li><li>Introductory animation tutorials <span class="bk">Blank 22</span></li><li><strong>[Pls give one recommendation based on Feedback 3]</strong> <span class="bk">Blank 23</span></li></ul></div><div class="zh-text">你的笔记。讨论：工作坊 → 让年轻人能以具创意及有意义的方式运用视觉叙事技巧；有指导的培训环节 → 制作故事板及掌握动画软件的实用技能。结论：有效（提升年轻人的视觉叙事及动画技能）。建议：定期工作坊；入门动画教程；[根据反馈3提出一项建议]。</div><div class="sticky inline">Will, pls elaborate on these <span class="zh-inline">Will，请详细阐述这些内容</span></div>
+    </div>
+
+    <div class="card" id="tpl-card-t3b">
+        <h2>Template for EAII_LAN4103: Fill in the Blanks</h2>
+        <div class="zh-label">EAII_LAN4103 模板：填写空格（填写内容后空格会自动扩展）</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Click on a blank and type. Each blank grows as you write. Use the numbered hints, then compare your answer with the model answer below.</p>
+        <div class="vocab-box" style="font-size:0.88em;"><strong>Hints:</strong> (1), (3), (4): use numerical/general description (e.g. x% / a majority of, etc.) &nbsp;|&nbsp; (2), (5): use reported speech &nbsp;|&nbsp; <em>rose</em> / <em>fell</em>: use past tense verbs
+            <div class="zh-text">提示：(1)、(3)、(4) 使用数字／概括性描述（例如 x%／大多数等）；(2)、(5) 使用转述语；rose／fell 等动词使用过去式。</div></div>
+
+        <div class="project-section tpl">
+            <h3>Findings <span class="zh-inline">研究结果</span></h3>
+            <ul class="tpl-list">
+                <li>After the project, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 1" data-ph="(1) x% / a majority of"></span> of the respondents said that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 2" data-ph="(2) reported speech"></span>, which was <em>a significant increase / remarkable rise / sharp rise / great increase</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 3" data-ph="(3) x% / a majority of"></span> before the project.</li>
+                <li><span class="fill" contenteditable="true" role="textbox" aria-label="Blank 4" data-ph="(4) x% / a majority of"></span> of them reported that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 5" data-ph="(5) reported speech"></span>, compared to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 6" data-ph="(6) x%"></span> before.</li>
+                <li>Moreover, the number of respondents who <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 7" data-ph="(7) description"></span> <em>rose</em> <small style="color:#888">(past tense verb)</small> sharply from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 8" data-ph="(8) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 9" data-ph="(9) x%"></span>, while those <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 10" data-ph="(10) description"></span> <em>fell</em> <em>drastically / remarkably</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 11" data-ph="(11) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 12" data-ph="(12) x%"></span>.</li>
+                <li>It was also found that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 13" data-ph="(13) subject + verb"></span></li>
+                <li>However, some respondents <em>mentioned / stated / reported</em> that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 14" data-ph="(14) subject + verb"></span></li>
+                <li>Furthermore, some of them suggested that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 15" data-ph="(15) subject + verb"></span>
+                    <div class="tpl-or">(OR: some of them expressed concerns about + noun)</div></li>
+            </ul>
+            <p class="tpl-note">(* For sentence 6, use a neutral and professional wording to keep the tone respectful and constructive)</p>
+            <div class="zh-text">（*第6句请使用中立、专业的措辞，保持尊重及具建设性的语气。或：some of them expressed concerns about + 名词）</div>
         </div>
 
-        <div class="project-section">
-            <h3>4. Discussion</h3>
-            <p style="font-size:0.93em; color:#555; font-style:italic;">Discussing the implications of the findings / Evaluating the project effectiveness</p>
-            <img src="images/image6.png" alt="Focus group feedback messages" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <textarea class="blank-input" rows="8" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        <div class="project-section tpl">
+            <h3>Discussion <span class="zh-inline">讨论</span></h3>
+            <ul class="tpl-list">
+                <li>The findings suggest that the <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 16" data-ph="(16) subject"></span> <em>has / have</em> effectively <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 17" data-ph="(17) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+                <li>Moreover, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank ?" data-ph="(?) participants / ?????"></span> have benefited from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 18" data-ph="(18) noun phrase"></span>, which <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 19" data-ph="(19) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+            </ul>
         </div>
 
-        <div class="project-section">
-            <h3>5. Conclusion</h3>
-            <p style="font-size:0.93em; color:#555; font-style:italic;">Concluding and summarising the overall impact of the project and future direction</p>
-            <textarea class="blank-input" rows="7" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        <div class="project-section tpl">
+            <h3>Conclusion <span class="zh-inline">结论</span></h3>
+            <ul class="tpl-list">
+                <li>To conclude, the project has been <em>successful / effective</em> in <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 20" data-ph="(20) Verb + -ing"></span></li>
+                <li>While similar projects should continue to be offered, there are some areas that could be improved for better results.</li>
+            </ul>
         </div>
 
-        <div class="project-section">
-            <h3>6. Recommendations</h3>
-            <p style="font-size:0.93em; color:#555; font-style:italic;">Recommending practical solutions or improvements based on the evaluation findings for the way forward</p>
-            <img src="images/image7.png" alt="Your notes - Discussion, Conclusion and Recommendations" style="width:100%; max-width:750px; margin:10px 0; border-radius:6px;">
-            <textarea class="blank-input" rows="7" placeholder="__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________"></textarea>
+        <div class="project-section tpl">
+            <h3>Recommendations <span class="zh-inline">建议</span></h3>
+            <ul class="tpl-list">
+                <li>In light of the positive outcomes, it is recommended <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 21" data-ph="(21) what"></span> could be offered to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank target" data-ph="(target) target audience"></span> so that <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>Moreover, it is advisable that <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 22" data-ph="(22) what"></span> should be <em>arranged / provided / developed</em> to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>In addition, we should <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 23" data-ph="(23) action"></span> in order to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+            </ul>
         </div>
+    </div>
+
+    <div class="card">
+        <h2>Task 2 Data Bank: Which Data Goes into Which Blank</h2>
+        <div class="zh-label">数据对照：哪些数据填入哪个空格</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Each numbered blank in the template is matched to the data above (survey charts, focus group feedback and your notes). Expand the table to check.</p>
+        <details class="databank" style="margin-top:8px;"><summary>Show data for each blank (teacher key) <span class="zh-inline">显示各空格所需数据（教师参考）</span></summary>
+<div style="overflow-x:auto;"><table class="form-table dk"><tr><th style="width:62px;">Blank<div class="zh-label">空格</div></th><th style="width:200px;">Where the data comes from<div class="zh-label">数据来源</div></th><th style="width:230px;">Data to use<div class="zh-label">所需数据</div></th><th>Suggested fill (from the possible response)<div class="zh-label">建议填写内容</div></th></tr>
+<tr><td class="dk-n">1</td><td>Q1 chart, <em>Advanced</em> (post)</td><td>Post-project 76%</td><td class="dk-fill">over three-quarters (76%)</td></tr><tr><td class="dk-n">2</td><td>Q1 question wording</td><td>Storyboard creation skills rated as advanced</td><td class="dk-fill">rated their storyboard creation skills as advanced</td></tr><tr><td class="dk-n">3</td><td>Q1 chart, <em>Advanced</em> (pre)</td><td>Pre-project 4%</td><td class="dk-fill">4% <em>(a significant increase from just 4% before)</em></td></tr><tr><td class="dk-n">4</td><td>Q1 chart, <em>Intermediate</em> (post)</td><td>Post-project 16%</td><td class="dk-fill">nearly one-fifth (16%)</td></tr><tr><td class="dk-n">5</td><td>Q1 question wording</td><td>Storyboard creation skills rated as intermediate</td><td class="dk-fill">assessed their skills as intermediate</td></tr><tr><td class="dk-n">6</td><td>Q1 chart, <em>Intermediate</em> (pre)</td><td>Pre-project 8%</td><td class="dk-fill">8%</td></tr><tr><td class="dk-n">7</td><td>Q2 chart, <em>Highly important</em></td><td>Visual storytelling is highly important in communication</td><td class="dk-fill">considered visual storytelling highly important in communication</td></tr><tr><td class="dk-n">8</td><td>Q2 chart, <em>Highly important</em> (pre)</td><td>Pre-project 12%</td><td class="dk-fill">12%</td></tr><tr><td class="dk-n">9</td><td>Q2 chart, <em>Highly important</em> (post)</td><td>Post-project 60%</td><td class="dk-fill">60% (more than half)</td></tr><tr><td class="dk-n">10</td><td>Q2 chart, <em>Not important</em></td><td>Visual storytelling is not important</td><td class="dk-fill">considered it not important</td></tr><tr><td class="dk-n">11</td><td>Q2 chart, <em>Not important</em> (pre)</td><td>Pre-project 60%</td><td class="dk-fill">60%</td></tr><tr><td class="dk-n">12</td><td>Q2 chart, <em>Not important</em> (post)</td><td>Post-project 8%</td><td class="dk-fill">8%</td></tr><tr><td class="dk-n">13</td><td>Feedback 1 😁 (+ve)</td><td>Trainers express themselves clearly; never boring</td><td class="dk-fill">praised the trainers for their clear instructions and engaging teaching approach</td></tr><tr><td class="dk-n">14</td><td>Feedback 2 😅 (&minus;ve)</td><td>Animation software not easy to use within a few lessons (say it tactfully)</td><td class="dk-fill">found the animation software challenging to master within the limited timeframe</td></tr><tr><td class="dk-n">15</td><td>Feedback 3 😡 (&minus;ve)</td><td>On my own; no discussions; no project work (say it tactfully)</td><td class="dk-fill">suggested allocating more time for project work and group discussions</td></tr><tr><td class="dk-n">16</td><td>Notes: Discussion, 1st point</td><td>Workshops</td><td class="dk-fill">the training workshops</td></tr><tr><td class="dk-n">17</td><td>Notes: Discussion, 1st point</td><td>&rarr; apply visual storytelling techniques in creative and meaningful ways</td><td class="dk-fill">have successfully enabled young people to apply visual storytelling techniques in creative and meaningful ways</td></tr><tr><td class="dk-n">18</td><td>Notes: Discussion, 2nd point</td><td>Guided training sessions</td><td class="dk-fill">these sessions <em>(subject: they / young people)</em></td></tr><tr><td class="dk-n">19</td><td>Notes: Discussion, 2nd point</td><td>&rarr; practical skills in creating storyboards and mastering animation software</td><td class="dk-fill">developed practical skills in creating narrative-driven storyboards, mastering basic animation software, and designing compelling visual narratives. <em>Elaboration:</em> they can now communicate ideas more clearly and creatively through various forms of visual media.</td></tr><tr><td class="dk-n">20</td><td>Notes: Conclusion</td><td>Effective &mdash; enhance young people&rsquo;s visual storytelling and animation skills</td><td class="dk-fill">enhancing young people&rsquo;s visual storytelling and animation skills</td></tr><tr><td class="dk-n">21</td><td>Notes: Recommendations, 1st point</td><td>Regular workshops</td><td class="dk-fill">similar workshops be offered on a regular basis <em>[target audience: young people]</em> so that more young people will benefit, while previous participants can explore advanced illustration and animation skills for visual storytelling</td></tr><tr><td class="dk-n">22</td><td>Notes: Recommendations, 2nd point + Feedback 2</td><td>Introductory animation tutorials</td><td class="dk-fill">provide new learners with access to introductory animation tutorials before the workshops begin, allowing them to gain a basic understanding of the design tools and concepts</td></tr><tr><td class="dk-n">23</td><td>Feedback 3 (your own recommendation)</td><td>No discussions or project work</td><td class="dk-fill">extend the session on hands-on project work and group discussion to enable more collaborative learning</td></tr></table></div><p class="tpl-note" style="margin-top:8px;">Blanks 1&ndash;15 follow the numbers handwritten on the teacher version; blanks 16&ndash;23 follow the Discussion, Conclusion and Recommendations notes. The notes say &ldquo;Accept any possible answers&rdquo; for the Recommendations.</p></details></div>
+    
+    <div class="card">
+        <h2>Task 2 &mdash; Possible Response (300&ndash;350 words)</h2>
+        <div class="zh-label">任务二 — 参考回应（300–350字）</div>
+        <div class="project-section"><h3>3. Findings <span class="zh-inline">研究结果</span></h3>
+        <p style="font-size:0.9em; color:#555; font-style:italic;">Describing quantitative and qualitative findings / Reporting negative feedback tactfully</p>
+        <p class="answer-block">After the project&rsquo;s implementation, over three-quarters of the respondents rated their storyboard creation skills as advanced, indicating a significant increase from just 4% before. Nearly one-fifth of them assessed their skills as intermediate, compared to 8% prior to the project. Additionally, the vast majority of them acknowledged the importance of visual storytelling in communication, with more than half considering it highly important.</p><div class="zh-text">项目实施后，超过四分之三的受访者将自己的故事板制作技能评为高级，较项目前仅4%有显著增加。近五分之一的人评估自己的技能为中级，而项目前为8%。此外，绝大多数人认同视觉叙事在沟通中的重要性，其中超过半数认为非常重要。</div>
+        <p class="answer-block">Most respondents praised the trainers for their clear instructions and engaging teaching approach. Nevertheless, some participants found the animation software challenging to master within the limited timeframe. Interview feedback also suggested allocating more time for project work and group discussions.</p><div class="zh-text">大多数受访者称赞导师指导清晰、教学方式生动有趣。然而，一些参加者觉得动画软件在有限时间内难以掌握。访谈反馈亦建议增加项目实作和小组讨论的时间。</div></div>
+        <div class="project-section"><h3>4. Discussion <span class="zh-inline">讨论</span></h3>
+        <p style="font-size:0.9em; color:#555; font-style:italic;">Discussing the implications of the findings / Evaluating the project effectiveness</p>
+        <p class="answer-block">As revealed in the findings, the training workshops have successfully enabled young people to apply visual storytelling techniques in creative and meaningful ways. Through these sessions, they have developed practical skills in creating narrative-driven storyboards, mastering basic animation software, and designing compelling visual narratives. In other words, they are now able to communicate ideas more clearly and creatively through various forms of visual media.</p><div class="zh-text">研究结果显示，培训工作坊成功让年轻人能以具创意及有意义的方式运用视觉叙事技巧。透过这些环节，他们培养了制作叙事导向故事板、掌握基础动画软件及设计引人入胜的视觉叙事的实用技能。换言之，他们现在能够透过各种视觉媒体更清晰、更有创意地表达想法。</div></div>
+        <div class="project-section"><h3>5. Conclusion <span class="zh-inline">结论</span></h3>
+        <p style="font-size:0.9em; color:#555; font-style:italic;">Concluding and summarising the overall impact of the project and future direction</p>
+        <p class="answer-block">Overall, the project has proven highly effective in enhancing young people&rsquo;s visual storytelling and animation skills. While it is essential to expand the initiative, there is some room for improvement to further enhance the effectiveness of the project.</p><div class="zh-text">整体而言，该项目已证明能有效提升年轻人的视觉叙事及动画技能。尽管扩展这项计划至关重要，但仍有改进空间，以进一步提升项目成效。</div></div>
+        <div class="project-section"><h3>6. Recommendations <span class="zh-inline">建议</span></h3>
+        <p style="font-size:0.9em; color:#555; font-style:italic;">Recommending practical solutions or improvements based on the evaluation findings for the way forward</p>
+        <p class="answer-block">In light of the positive outcomes, it is recommended that similar workshops be offered on a regular basis so that more young people will benefit, while previous participants can explore advanced illustration and animation skills for visual storytelling.</p><div class="zh-text">鉴于积极的成果，建议定期举办类似工作坊，让更多年轻人受益，同时让之前的参加者探索视觉叙事的进阶插画及动画技能。</div>
+        <p class="answer-block">At the same time, it would be beneficial to provide new learners with access to introductory animation tutorials before the workshops begin, allowing them to gain a basic understanding of the design tools and concepts. To further enrich the learning experience, the session on hands-on project work and group discussion could be extended to enable more collaborative learning.</p><div class="zh-text">同时，建议在工作坊开始前，为新学员提供入门动画教程，让他们对设计工具及概念有基本了解。为进一步丰富学习体验，可延长项目实作及小组讨论环节，以促进更多协作学习。</div>
+        <p class="tpl-note">[Accept any possible answers.] <span class="zh-inline">接受任何合理答案。</span></p></div>
     </div>
 </div>
 
+<!-- ==================== TAB 4: Revision Guide — Korean Connect ==================== -->
+<div class="tab-content" id="tab4">
+    <div class="card">
+        <h2>LAN4103 EAII Evaluation Report Revision Guide</h2><div class="zh-label">LAN4103 EAII 评估报告复习指南</div>
+        <p style="font-size:0.95em; color:#555; margin-top:6px;"><strong>Evaluation report on the &lsquo;Korean Connect&rsquo; project</strong></p><div class="zh-text">「Korean Connect」项目评估报告</div>
+    </div>
+
+    <div class="card">
+        <h2>Task</h2><div class="zh-label">任务</div>
+        <p style="font-size:0.93em; color:#555;">You are Angel Chan, a human resources assistant at Halo Hotel Group. You have conducted a mini-project to improve service quality for Korean-speaking guests.</p><div class="zh-text">你是Halo酒店集团的人力资源助理陈Angel。你开展了一个迷你项目，以提升韩语客人的服务质量。</div>
+        <p style="font-size:0.93em; color:#555; margin-top:6px;">You are required to write an evaluation report to the staff development manager discussing the effectiveness of the project and giving recommendations for the way forward. Using the notes and data you have compiled, complete the evaluation report with appropriate elaboration.</p><div class="zh-text">你须向员工发展经理撰写一份评估报告，讨论项目成效并提出未来发展建议。请运用你整理的笔记和数据，适当阐述并完成评估报告。</div>
+    </div>
+
+    <div class="card">
+        <h2>Situation</h2><div class="zh-label">情境</div>
+        <table class="form-table">
+            <tr><th>Project objective<div class="zh-label">项目目标</div></th><td class="blank">&nbsp;</td></tr>
+            <tr><th>Outcome<div class="zh-label">成果</div></th><td class="blank">&nbsp;</td></tr>
+            <tr><th>What have the participants learned?<div class="zh-label">参与者学到了什么？</div></th><td class="blank">&nbsp;</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>3. Findings: Results of pre- and post-project surveys</h2><div class="zh-label">三、研究结果：项目前后调查结果</div>
+        <div class="project-section">
+            <h3>Model paragraph</h3>
+            <div class="formula-box">After the project, <strong>more than half of the participants</strong> reported that they <strong>consistently</strong> assisted Korean tourists with simple requests, compared to <strong>3%</strong> before the project. <strong>One-fifth of them</strong> could <strong>sometimes</strong> do so, <strong>which was a noticeable increase from only 10% before the project</strong>. Moreover, <strong>a majority of the participants</strong> reported that they were <strong>confident</strong> in being sensitive to Korean culture, while <strong>one-fifth of them</strong> felt <strong>highly confident</strong>.</div><div class="zh-text">项目结束后，超过半数的参与者表示他们能够持续协助韩国游客处理简单要求，而项目前仅为3%。五分之一的参与者有时能够做到，较项目前仅10%有明显上升。此外，大多数参与者表示他们有信心对韩国文化保持敏感，其中五分之一的人感到非常有信心。</div>
+        </div>
+
+        <div class="project-section">
+            <h3>Question 1</h3>
+            <ul><li>Compare post-project data with pre-project data within the same category <span class="zh-inline">比較同一類別中項目前與項目後的數據，描述其主要結果與變化趨勢</span></li></ul>
+            <h3 style="margin-top:10px;">Question 2</h3>
+            <ul><li>Present 2 sets of data with the most salient (obvious) results <span class="zh-inline">選取兩組最具代表性之數據，描述其主要結果</span></li></ul>
+        </div>
+
+        <div class="project-section">
+            <h3>Points to note <span class="zh-inline">重點</span></h3>
+            <p style="margin-top:6px;"><strong>&bull; Use fractional quantifier to present numerical %</strong> <span class="zh-inline">用分數描述 %</span></p>
+            <table class="form-table" style="margin-top:8px;">
+                <tr><th rowspan="6" style="width:200px;">About, Almost, Around, Over, More than, Less than</th><td>25%</td><td><strong>A quarter of the participants</strong></td></tr>
+                <tr><td>33%</td><td><strong>One-third of the participants</strong></td></tr>
+                <tr><td>50%</td><td><strong>Half of the participants</strong></td></tr>
+                <tr><td>67%</td><td><strong>Two-thirds of the participants</strong></td></tr>
+                <tr><td>75%</td><td><strong>Three-quarters of the participants</strong></td></tr>
+                <tr><td>&gt;80%</td><td><strong>A majority of the participants</strong></td></tr>
+            </table><div class="zh-text">常用分数表达：25% 四分之一；33% 三分之一；50% 一半；67% 三分之二；75% 四分之三；&gt;80% 大多数。</div>
+
+            <p style="margin-top:12px;"><strong>&bull; Comparison</strong> <span class="zh-inline">比較</span>: <em>after the project, compared to X% before the project / prior to the project</em></p>
+
+            <p style="margin-top:12px;"><strong>&bull; Describe trend</strong> <span class="zh-inline">描述趨勢</span>:</p>
+            <table class="form-table" style="margin-top:8px;">
+                <tr><td style="width:140px;">which was a</td><td>significant<br>remarkable<br>sharp<br>noticeable</td><td>increase / rise<br>decrease / drop / fall</td></tr>
+            </table><div class="zh-text">“which was a” + 显著 / 明显 / 急剧 / 可观的 + 增长、上升 / 下降、减少。</div>
+
+            <p style="margin-top:12px;"><strong>&bull; Reported speech use PAST TENSE</strong> <span class="zh-inline">用過去式</span></p>
+
+            <p style="margin-top:12px;"><strong>&bull; Use appropriate connecting words</strong> <span class="zh-inline">用適當的連接詞</span>:<br>
+            <em>meanwhile, while</em> <span class="zh-inline">(與此同時)</span>; <em>whereas, however, nevertheless</em> <span class="zh-inline">(儘管, 但是)</span>; Furthermore, Moreover, In addition, Additionally <span class="zh-inline">(再者，此外)</span></p>
+        </div>
+
+        <div class="project-section">
+            <h3>Template: 3. Findings</h3>
+            <div class="formula-box">
+                After the project, around <em>half / one-third / two-thirds / a quarter / three-quarters</em> of the participants reported that __________________________________________________________, compared to only <strong>X%</strong> before it began.<br><br>
+                About <em>half / one-third / two-thirds / a quarter / three-quarters</em> of them expressed that ___________________________________________________________, which was a remarkable <em>rise / increase / drop / decrease</em> from just <strong>X%</strong> prior to the project. Moreover, more than / less than <em>half / one-third / two-thirds / a quarter / three-quarters</em> of the participants indicated that ____________________________, while <strong>X%</strong> reported that ________________________________________________________________________.
+            </div><div class="zh-text">项目结束后，约（一半／三分之一／三分之二／四分之一／四分之三）的参与者表示……，而项目前仅为X%。约……的参与者表示……，较项目前的X%有显著上升／增长／下降／减少。此外，超过／不足……的参与者指出……，而X%则表示……。</div>
+            <textarea class="blank-input" rows="8" placeholder="3. Findings (survey results)&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Findings: Focus group interviews</h2><div class="zh-label">三、研究结果：焦点小组访谈</div>
+        <div class="project-section">
+            <h3>Basic level</h3>
+            <div class="formula-box">Some participants <strong>praised</strong> the individual consultation sessions <strong>were</strong> very useful. <strong>However,</strong> some participants <strong>stated that</strong> there <strong>were not</strong> any materials for self-learning. <strong>Moreover</strong>, some of them <strong>expressed that</strong> they <strong>had never practised</strong> speaking with native Korean speakers.</div><div class="zh-text">一些参与者称赞个别咨询环节非常有用。然而，一些参与者表示没有自学材料。此外，部分参与者表示他们从未与母语为韩语的人练习过口语。</div>
+        </div>
+        <div class="project-section">
+            <h3>Advanced level</h3>
+            <p style="margin-top:4px;"><strong>Points to note</strong> <span class="zh-inline">重點</span>:</p>
+            <ul>
+                <li>Use suitable reporting verbs <span class="zh-inline">使用以下動詞來呈現受訪者的意見</span>: <strong>reported, commented, mentioned, stated, expressed</strong></li>
+                <li>Modify negative feedback to sound more professional and constructive, avoid using &ldquo;complained&rdquo;, &ldquo;upset&rdquo; <span class="zh-inline">匯報負面回饋時保持專業及有建設性的語氣, 避免用&ldquo;complained&rdquo;, &ldquo;upset&rdquo;</span></li>
+                <li>You may also use these phrases to present the negative feedback <span class="zh-inline">表達負面回饋時可使用以下字眼</span>: <strong>raised concerns about, dissatisfied with, expressed a desire for</strong></li>
+                <li>Use &ldquo;<strong>However</strong>&rdquo; to contrast positive and negative comments <span class="zh-inline">使用 &ldquo;However&rdquo; 來對比正面與負面意見</span></li>
+            </ul>
+            <div class="formula-box">It was revealed that the individual consultation sessions <strong>were</strong> very useful in identifying and in correcting participants&rsquo; mistakes. <strong>However</strong>, some participants <strong>felt</strong> the training could be supplemented with online materials. <strong>Furthermore</strong>, a few <strong>expressed a desire for</strong> opportunities to practise speaking with native Korean speakers.</div><div class="zh-text">调查显示，个别咨询环节对于发现及纠正参与者的错误非常有帮助。然而，一些参与者认为培训可辅以网上材料。此外，少数人表示希望有机会与母语为韩语的人练习口语。</div>
+            <h3 style="margin-top:12px;">Template</h3>
+            <div class="formula-box">Some participants <strong>praised</strong> ______________________________________________________.<br><br>
+            <strong>However,</strong> some participants <strong>stated that</strong> ________________________________________.<br><br>
+            <strong>Moreover</strong>, some of them <strong>expressed that</strong> _______________________________________________________________.</div><div class="zh-text">一些参与者称赞……。然而，一些参与者表示……。此外，部分参与者表示……。</div>
+            <textarea class="blank-input" rows="6" placeholder="3. Findings (focus group interviews)&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>4. Discussion</h2><div class="zh-label">四、讨论</div>
+        <p style="font-size:0.93em; color:#555;"><strong>Go back to the evaluation report, find out the objective(s), outcome(s) and what participants have learned from Introduction &amp; Implementation</strong><br><span class="zh-inline"><strong>從「簡介與執行」部分找出目標、成果，以及參與者從中學到的內容。</strong></span></p>
+        <table class="form-table" style="margin-top:10px;">
+            <tr><th>Outcome(s)</th><td>In light of the findings, the workshops <strong>have effectively</strong> equipped hotel staff with basic Korean language skills and cultural understanding.</td><td class="zh-inline-cell">這些工作坊<strong>有效地</strong>讓酒店員工掌握基本的韓語技能及文化理解。</td></tr>
+            <tr><th>What have they learned?</th><td><strong>Through</strong> the practical workshops and personalised session, they learned essential Korean greetings, etiquette, practical conversational skills and hospitality-related vocabulary. Moreover, one-on-one consultation sessions were offered to provide participants with personalised feedback.</td><td class="zh-inline-cell"><strong>透過</strong>實用的工作坊和個人化課程，他們學習了基本的韓語問候語、禮儀、實用會話技巧，以及與酒店服務相關的詞彙。同時，還提供一對一諮詢環節，為參與者提供個人化回饋。</td></tr>
+            <tr><th>Objective(s)</th><td><strong>In short</strong>, the workshops have enhanced <em>staff</em> competency and confidence in speaking Korean, delivering high-quality service to Korean-speaking guests / improving the overall service quality of our hotel.</td><td class="zh-inline-cell"><strong>總而言之</strong>，這些工作坊提升了<em>員工的</em>能力與自信，使他們能以韓語溝通，為韓語客人提供高品質服務 / 進一步改善本酒店的整體服務品質。</td></tr>
+        </table>
+        <h3 style="font-size:0.98em; color:#5a9e3e; margin-top:14px;">Template</h3>
+        <div class="formula-box"><strong>In light of the findings, ________________________ have effectively ________________________________________________________________________________.<br><br>
+        Through __________________________________________________________________________________________, they learned _______________________________<br>
+        ______________________________________________________________. In short, ______________________________________________________<br>
+        ______________________________________________________________________________.</strong></div><div class="zh-text">鉴于研究结果，……有效地……。透过……，他们学习了……。总而言之，……。</div>
+        <textarea class="blank-input" rows="6" placeholder="4. Discussion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>5. Conclusion</h2><div class="zh-label">五、结论</div>
+        <p style="font-size:0.93em; color:#555;">To highlight that the project was largely effective or successful in achieving its main objective(s), while acknowledging the need for ongoing workshops and improvements to further enhance effectiveness.<br><span class="zh-inline">強調該專案在達成主要目標方面大致成功，同時指出需要持續舉辦工作坊並進行改進，以進一步提升專案的成效。</span></p>
+        <div class="formula-box"><strong>The findings indicate that the project has been mostly effective in</strong> building foundational Korean language skills among hotel staff and boosting their confidence in communicating with Korean tourists. <strong>While similar</strong> workshops <strong>should continue to be offered</strong>, <strong>there is room for improvement to further enhance the effectiveness of the project.</strong></div><div class="zh-text">研究结果显示，该项目在为酒店员工建立基础韩语技能及提升他们与韩国游客沟通的信心方面大致有效。尽管应继续举办类似的工作坊，但仍有改进空间，以进一步提升项目成效。</div>
+        <h3 style="font-size:0.98em; color:#5a9e3e; margin-top:14px;">Template</h3>
+        <div class="formula-box"><strong>The findings indicate that the project has been mostly</strong> effective / successful <strong>in</strong> __________________________________________________________________<br>
+        _______________________________________________________. <strong>While similar</strong> workshops / training sessions / lessons / app / initiative <strong>should continue to be offered</strong> / expanded / promoted, <strong>there is room for improvement to further enhance the effectiveness of the project.</strong></div><div class="zh-text">研究结果显示，该项目大致（有效／成功）地……。尽管类似的（工作坊／培训课程／课堂／应用程序／计划）应继续（提供／扩展／推广），但仍有改进空间，以进一步提升项目成效。</div>
+        <textarea class="blank-input" rows="5" placeholder="5. Conclusion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+    </div>
+
+    <div class="card">
+        <h2>6. Recommendations</h2><div class="zh-label">六、建议</div>
+        <p style="font-size:0.93em; color:#555;">Based on the feedback from the focus group interview, provide relevant feedback with elaboration.<br><span class="zh-inline">根據焦點小組訪談的回饋，提供相關意見並加以詳述。</span></p>
+        <div class="formula-box"><strong>In view of the positive findings, it is recommended that</strong> monthly workshops be offered so that more hotel staff will benefit from them, while previous staff will have opportunities to refresh their knowledge and practise their Korean. <strong>Meanwhile, it is advisable to</strong> develop and provide supplementary online materials, such as video tutorials and interactive exercises, enabling staff to reinforce their skills at their own pace. To offer authentic conversation practice, <strong>it is suggested that</strong> additional sessions with native Korean speakers through virtual platforms could be organised.</div><div class="zh-text">鉴于积极的研究结果，建议每月举办工作坊，让更多酒店员工受益，同时让之前参加的员工有机会温习知识并练习韩语。同时，建议开发并提供补充网上材料，如视频教程和互动练习，让员工按自己的步伐巩固技能。为提供真实的会话练习，建议透过虚拟平台增设与母语为韩语人士的环节。</div>
+
+        <h3 style="font-size:0.98em; color:#5a9e3e; margin-top:14px;">Frequently used feedback &amp; recommendations <span class="zh-inline">常用回饋及建議</span></h3>
+        <table class="form-table" style="margin-top:8px;">
+            <tr><th style="width:230px;">稱讚課程吸引而實用, 稱讚產品好用<br><em>practical, effective, beneficial</em></th><td>It is recommended that regular workshops <em>be offered / be promoted / be used / be adopted / be organised / be implemented / be expanded</em> so that more students will benefit from them, while previous participants will have opportunities to refresh their knowledge and practise their skills / it could reach a wider audience.<div class="zh-text">建议定期举办（提供／推广／使用／采用／组织／实施／扩大）工作坊，让更多学生受益，同时让之前的参加者有机会温习知识及练习技能／接触更广泛的受众。</div></td></tr>
+            <tr><th>稱讚mobile app/ 系統很實用<br><em>practical &amp; user-friendly</em></th><td>It is suggested that the mobile app / system be introduced to more companies to extend its benefits, while the existing app should be further enhanced to better meet user needs.<div class="zh-text">建议向更多公司推介该手机应用程序／系统以扩大其效益，同时应进一步改进现有应用程序，以更好地满足用户需要。</div></td></tr>
+            <tr><th>缺乏網上自學資源<br><em>No online resources</em></th><td>It is advisable to develop and provide supplementary online learning materials, such as video tutorials and interactive exercises, enabling participants to reinforce their skills at their own pace.<div class="zh-text">建议开发并提供补充网上学习材料，如视频教程和互动练习，让参加者按自己的步伐巩固技能。</div></td></tr>
+            <tr><th>很快忘記課程內容<br><em>Couldn&rsquo;t remember the knowledge learned</em></th><td>It is advisable that an online platform be developed, where participants can access training materials and video tutorials.<div class="zh-text">建议开发网上平台，让参加者可浏览培训材料及视频教程。</div></td></tr>
+            <tr><th>沒有表現評價<br><em>No personalised feedback</em></th><td>Feedback sessions should be added so the trainers can give individual feedback to participants&rsquo; work.<div class="zh-text">应增设反馈环节，让导师可就参加者的作品给予个别回馈。</div></td></tr>
+            <tr><th>課程時間太短<br><em>The duration was too short</em></th><td>It is suggested that the duration of the lessons be extended to 2 hours so that participants could have more time to interact and practice with teachers.<div class="zh-text">建议将课堂时长延长至2小时，让参加者有更多时间与老师互动及练习。</div></td></tr>
+            <tr><th>課程內容太悶<br><em>Activities were boring</em></th><td>It is recommended that interactive learning tool and games should be incorporated in the workshops in order to provide participants with a fun and engaging learning experience.<div class="zh-text">建议在工作坊中加入互动学习工具及游戏，为参加者带来有趣且吸引的学习体验。</div></td></tr>
+            <tr><th>缺乏學習動力<br><em>No motivation</em></th><td>It is beneficial that a support group be formed to hold regular meetings for participants so that they stay motivated.<div class="zh-text">建议成立支持小组并定期聚会，让参加者保持学习动力。</div></td></tr>
+            <tr><th>產品設計太複雜難用<br><em>Difficult to use</em></th><td>It is suggested that an online tutorial videos with step-by-step instructions be provided / offered to help users learn how to use the product.<div class="zh-text">建议提供／推出附有逐步说明的网上教学视频，帮助用户学会使用产品。</div></td></tr>
+            <tr><th>系統介面複雜<br><em>Interface was complicated</em></th><td>It is advisable to improve the mobile app&rsquo;s user interface, such as simplifying navigation and optimising layout for better accessibility.<div class="zh-text">建议改善手机应用程序的用户界面，例如简化导航及优化版面，以提升易用性。</div></td></tr>
+            <tr><th>系統經常出現問題<br><em>System delay, malfunction</em></th><td>More frequent maintenance check-ups should be scheduled to prevent technical issues, ensuring system stability, security, and optimal performance.<div class="zh-text">应安排更频繁的维护检查以预防技术问题，确保系统稳定、安全及最佳性能。</div></td></tr>
+            <tr><th>缺乏電腦軟件資源<br><em>Limited resources</em></th><td>Access to advanced resources such as premium XX software and exclusive content libraries should be provided.<div class="zh-text">应提供高级资源，例如优质XX软件及独家内容库。</div></td></tr>
+        </table>
+        <textarea class="blank-input" rows="6" placeholder="6. Recommendations&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+    </div>
+</div>
+
+<!-- ==================== TAB 5: Supplementary Task 2 — V-Music Library ==================== -->
+<div class="tab-content" id="tab5">
+    <div class="card">
+        <h2>LAN4103 EAII Supplementary Task 2 (V-Music Library) — Question Book</h2><div class="zh-label">LAN4103 EAII 补充任务二（V-Music Library）— 题目册</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Prepared by Rebecca</p>
+    </div>
+
+    <div class="card">
+        <h2>Task</h2><div class="zh-label">任务</div>
+        <p style="font-size:0.93em; color:#555;">You are Jamie Chan, a student of Higher Diploma in Music Production at Hong Kong Design Institute (HKDI). You have conducted a mini-project in the institute to evaluate the impact and success of the newly launched V-Music Library in promoting music education and industry engagement among students and alumni.</p><div class="zh-text">你是陈Jamie，香港知专设计学院（HKDI）音乐制作高级文凭的学生。你在学院开展了一个迷你项目，评估新推出的V-Music Library在推动学生及校友的音乐教育和业界参与方面的影响和成效。</div>
+        <p style="font-size:0.93em; color:#555; margin-top:6px;">You are required to write an evaluation report to the programme leader discussing the effectiveness of the project and giving recommendations for the way forward. Some notes and the first half of the report are provided for you.</p><div class="zh-text">你须向课程主任撰写一份评估报告，讨论项目成效并提出未来发展建议。部分笔记及报告的前半部分已为你提供。</div>
+    </div>
+
+    <div class="card">
+        <h2>Your Notes and Research Data</h2><div class="zh-label">你的笔记及研究数据</div>
+        <dl class="info-grid"><dt>Background:</dt><dd>Many young musicians lack platforms to showcase their work and connect with the industry</dd><dt>Project title:</dt><dd>&lsquo;Impact and Success of V-Music Library&rsquo; project</dd><dt>Participants:</dt><dd>6 student researchers, 40 HKDI students and alumni</dd></dl><div class="zh-text"><dl class="info-grid"><dt>背景：</dt><dd>许多年轻音乐人缺乏展示作品和连接业界的平台</dd><dt>项目名称：</dt><dd>「V-Music Library的影响与成效」项目</dd><dt>参与者：</dt><dd>6名学生研究员、40名HKDI学生及校友</dd></dl></div>
+        <div class="project-section" style="margin-top:14px;">
+            <h3>Project Details <span class="zh-inline">项目详情</span></h3>
+            <table class="form-table">
+                <tr><th style="background:#5a9e3e; color:white;">Period</th><th style="background:#5a9e3e; color:white; width:auto;">Activity</th></tr>
+                <tr><td>Sept 202- <span class="zh-inline">202-年9月</span></td><td>Pre-project survey <span class="zh-inline">项目前调查</span></td></tr><tr><td>Oct &ndash; Nov 202- <span class="zh-inline">202-年10月至11月</span></td><td>Observational research, interviews, and participation in workshops and exhibitions <span class="zh-inline">观察研究、访谈，以及参与工作坊和展览</span></td></tr><tr><td>Dec 202- <span class="zh-inline">202-年12月</span></td><td>Post-project survey and focus group interviews <span class="zh-inline">项目后调查及焦点小组访谈</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Results of the Pre- and Post-Project Surveys</h2><div class="zh-label">项目前后调查结果</div><p class="tpl-note" style="margin:6px 0 8px;">Green tags show which blank(s) of the template each salient data point fills. <span class="zh-inline">绿色标签表示该数据适用于模板中的哪些空格。</span></p>
+        <p class="q-text">Q1: How confident are you in using digital music tools like DAWS and samplers?</p><div class="zh-text">问题1：你在使用DAW和采样器等数字音乐工具方面有多大信心？</div><div class="bc"><div class="bc-title">Q1 — Confidence in using digital music tools <span class="zh-inline">问题1 — 使用数字音乐工具的信心</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row hl"><div class="bc-label">Not confident <span class="zh-inline">不自信</span><br><span class="bk">Blanks 10–12</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:64%"></span><span class="bc-val">64%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:2%"></span><span class="bc-val">2%</span></div></div></div><div class="bc-row hl"><div class="bc-label">Slightly confident <span class="zh-inline">稍有信心</span><br><span class="bk">Blanks 7–9</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:22%"></span><span class="bc-val">22%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:69%"></span><span class="bc-val">69%</span></div></div></div><div class="bc-row"><div class="bc-label">Somewhat confident <span class="zh-inline">颇有信心</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:12%"></span><span class="bc-val">12%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:25%"></span><span class="bc-val">25%</span></div></div></div><div class="bc-row"><div class="bc-label">Very confident <span class="zh-inline">非常有信心</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:2%"></span><span class="bc-val">2%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:4%"></span><span class="bc-val">4%</span></div></div></div></div><div class="sticky inline">Jamie, pls cover these salient points in the report <span class="zh-inline">Jamie，请在报告中涵盖这些重点</span></div><p class="q-text" style="margin-top:16px;">Q2: Did the V-Music Library motivate you to collaborate with other musicians?</p><div class="zh-text">问题2：V-Music Library有否激励你与其他音乐人合作？</div><div class="bc"><div class="bc-title">Q2 — Motivation to collaborate with other musicians <span class="zh-inline">问题2 — 与其他音乐人合作的动力</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row"><div class="bc-label">Yes <span class="zh-inline">是</span><br><span class="bk">Blanks 1–3</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:5%"></span><span class="bc-val">5%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:75%"></span><span class="bc-val">75%</span></div></div></div><div class="bc-row"><div class="bc-label">Quite <span class="zh-inline">颇有</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:15%"></span><span class="bc-val">15%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:23%"></span><span class="bc-val">23%</span></div></div></div><div class="bc-row"><div class="bc-label">No <span class="zh-inline">否</span><br><span class="bk">Blanks 4–6</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:80%"></span><span class="bc-val">80%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:2%"></span><span class="bc-val">2%</span></div></div></div></div><div class="sticky inline">Pls highlight only salient points <span class="zh-inline">请只强调重点</span></div>
+    </div>
+
+    <div class="card">
+        <h2>Student Feedback from Focus Group Interviews</h2><div class="zh-label">焦点小组访谈的学生反馈</div>
+        <table class="form-table fb-table">
+<tr><th>Feedback 1:</th><th>Feedback 2:</th><th>Feedback 3:</th></tr>
+<tr><td>I found rare vinyls that inspired my composition style. The library is a treasure trove! 😊<br><span class="bk">Blank 13</span><div class="zh-text">我找到了启发我作曲风格的珍稀黑胶唱片。这个图书馆是个宝库！</div></td><td>I wish there were more networking events with producers and artists. ☹<br><span class="bk">Blanks 14, 22</span><div class="zh-text">我希望有更多与制作人和艺人的交流活动。</div></td><td>The interface was confusing and hard to use. 😡<br><span class="bk">Blanks 15, 23</span><div class="zh-text">界面令人困惑，难以使用。</div></td></tr>
+</table>
+        <div class="notes-box"><h3>Your notes</h3>
+<p><strong>Discussion of findings</strong></p>
+<ul><li>Digital music tools like DAWs and samplers &rarr; boost student confidence and creativity <span class="bk">Blanks 16–17</span></li>
+<li>Collaborative features of the V-Music Library &rarr; peer-to-peer learning and industry engagement <span class="bk">Blanks 18–19</span></li></ul>
+<p><strong>Conclusion</strong></p>
+<ul><li>effective (enhance music education and collaboration among students and alumni) <span class="bk">Blank 20</span></li></ul>
+<p><strong>Recommendations</strong></p>
+<ul><li>tutorials and artist interviews. <span class="bk">Blank 21</span></li><li>regular meetups or webinars with music professionals <span class="bk">Blank 22</span></li>
+<li><strong><em>[Give one recommendation based on Feedback 3].</em></strong> <span class="bk">Blank 23</span></li></ul></div><div class="zh-text">你的笔记。讨论：DAW和采样器等数字音乐工具 → 提升学生的信心及创造力；V-Music Library的协作功能 → 同侪学习及业界参与。结论：有效（提升学生及校友的音乐教育及协作）。建议：教程及艺人访谈；定期聚会或与音乐专业人士的网络研讨会；[根据反馈3提出一项建议]。</div>
+<div class="sticky inline">Jamie, pls elaborate on these! <span class="zh-inline">Jamie，请详细阐述这些内容！</span></div>
+    </div>
+
+    <div class="card">
+        <h2>Completed Parts of the Report</h2><div class="zh-label">报告已完成部分</div>
+        <div class="project-section"><h3 style="font-size:1.02em;">Evaluation Report on &lsquo;Impact and Success of V-Music Library&rsquo; Project</h3><div class="zh-label">「V-Music Library的影响与成效」项目评估报告</div>
+<h3>1. Introduction <span class="zh-inline">简介</span></h3>
+<p style="font-size:0.93em; color:#444;">Music education and industry exposure are vital for nurturing young musicians. However, many students lack access to platforms that connect them with professionals and audiences. This mini-project, &lsquo;Impact and Success of V-Music Library&rsquo;, aims to assess how effectively the V-Music Library initiative supports music education, fosters collaboration, and promotes student creations. This report aims to discuss the effectiveness of the project and gives recommendations for the way forward.</p><div class="zh-text">音乐教育及业界接触对培育年轻音乐人至关重要。然而，许多学生缺乏接触专业人士和观众的平台。迷你项目「V-Music Library的影响与成效」旨在评估V-Music Library计划在支持音乐教育、促进协作及推广学生创作方面的成效。本报告旨在讨论项目成效并提出未来发展建议。</div></div>
+<div class="project-section"><h3>2. Methodology <span class="zh-inline">研究方法</span></h3>
+<p><strong>2.1 Participants</strong> <span class="zh-inline">参与者</span></p>
+<p style="font-size:0.93em; color:#444;">Six students were recruited as researchers, while 40 HKDI students and alumni participated in surveys, interviews, and workshops.</p><div class="zh-text">六名学生被招募为研究员，40名HKDI学生及校友参与调查、访谈及工作坊。</div>
+<p style="margin-top:8px;"><strong>2.2 Implementation</strong> <span class="zh-inline">实施</span></p>
+<p style="font-size:0.93em; color:#444;">From October to November 202-, the researchers attended vinyl record workshops, observed mini-concerts, and interviewed participants and staff involved in the V-Music Library. They also analysed visitor engagement during the &ldquo;Timeless Ideas &amp; Icons&rdquo; exhibition.</p><div class="zh-text">202-年10月至11月，研究员参加了黑胶唱片工作坊、观察迷你音乐会，并访问了参与V-Music Library的参加者及职员。他们亦分析了「Timeless Ideas & Icons」展览期间的访客参与情况。</div>
+<p style="margin-top:8px;"><strong>2.3 Evaluation</strong> <span class="zh-inline">评估</span></p>
+<p style="font-size:0.93em; color:#444;">To collect data for evaluation, the students and alumni had been invited to take part in a pre-project survey in September 202-. In December, a post-project survey was administered and focus group interviews were arranged for participants to share their experiences.</p><div class="zh-text">为收集评估数据，学生及校友受邀于202-年9月参加项目前调查。12月进行了项目后调查，并安排焦点小组访谈，让参与者分享他们的体验。</div></div>
+        <div class="sticky ">Continue with the following sections:<br>3. Findings<br>4. Discussion<br>5. Conclusion<br>6. Recommendations<br><span class="zh-inline">请继续撰写以下部分：3. 研究结果、4. 讨论、5. 结论、6. 建议</span></div>
+        <textarea class="blank-input" rows="15" placeholder="3. Findings&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;4. Discussion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;5. Conclusion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;6. Recommendations&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+    </div>
+
+    <div class="card" id="tpl-card-1">
+        <h2>Template for EAII_LAN4103: Fill in the Blanks</h2>
+        <div class="zh-label">EAII_LAN4103 模板：填写空格（填写内容后空格会自动扩展）</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Click on a blank and type. Each blank grows as you write. Use the numbered hints, then compare your answer with the model answer below.</p>
+        <div class="vocab-box" style="font-size:0.88em;"><strong>Hints:</strong> (1), (3), (4): use numerical/general description (e.g. x% / a majority of, etc.) &nbsp;|&nbsp; (2), (5): use reported speech &nbsp;|&nbsp; <em>rose</em> / <em>fell</em>: use past tense verbs
+            <div class="zh-text">提示：(1)、(3)、(4) 使用数字／概括性描述（例如 x%／大多数等）；(2)、(5) 使用转述语；rose／fell 等动词使用过去式。</div></div>
+
+        <div class="project-section tpl">
+            <h3>Findings <span class="zh-inline">研究结果</span></h3>
+            <ul class="tpl-list">
+                <li>After the project, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 1" data-ph="(1) x% / a majority of"></span> of the respondents said that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 2" data-ph="(2) reported speech"></span>, which was <em>a significant increase / remarkable rise / sharp rise / great increase</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 3" data-ph="(3) x% / a majority of"></span> before the project.</li>
+                <li><span class="fill" contenteditable="true" role="textbox" aria-label="Blank 4" data-ph="(4) x% / a majority of"></span> of them reported that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 5" data-ph="(5) reported speech"></span>, compared to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 6" data-ph="(6) x%"></span> before.</li>
+                <li>Moreover, the number of respondents who <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 7" data-ph="(7) description"></span> <em>rose</em> <small style="color:#888">(past tense verb)</small> sharply from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 8" data-ph="(8) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 9" data-ph="(9) x%"></span>, while those <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 10" data-ph="(10) description"></span> <em>fell</em> <em>drastically / remarkably</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 11" data-ph="(11) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 12" data-ph="(12) x%"></span>.</li>
+                <li>It was also found that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 13" data-ph="(13) subject + verb"></span></li>
+                <li>However, some respondents <em>mentioned / stated / reported</em> that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 14" data-ph="(14) subject + verb"></span></li>
+                <li>Furthermore, some of them suggested that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 15" data-ph="(15) subject + verb"></span>
+                    <div class="tpl-or">(OR: some of them expressed concerns about + noun)</div></li>
+            </ul>
+            <p class="tpl-note">(* For sentence 6, use a neutral and professional wording to keep the tone respectful and constructive)</p>
+            <div class="zh-text">（*第6句请使用中立、专业的措辞，保持尊重及具建设性的语气。或：some of them expressed concerns about + 名词）</div>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Discussion <span class="zh-inline">讨论</span></h3>
+            <ul class="tpl-list">
+                <li>The findings suggest that the <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 16" data-ph="(16) subject"></span> <em>has / have</em> effectively <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 17" data-ph="(17) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+                <li>Moreover, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank ?" data-ph="(?) participants / ?????"></span> have benefited from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 18" data-ph="(18) noun phrase"></span>, which <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 19" data-ph="(19) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+            </ul>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Conclusion <span class="zh-inline">结论</span></h3>
+            <ul class="tpl-list">
+                <li>To conclude, the project has been <em>successful / effective</em> in <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 20" data-ph="(20) Verb + -ing"></span></li>
+                <li>While similar projects should continue to be offered, there are some areas that could be improved for better results.</li>
+            </ul>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Recommendations <span class="zh-inline">建议</span></h3>
+            <ul class="tpl-list">
+                <li>In light of the positive outcomes, it is recommended <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 21" data-ph="(21) what"></span> could be offered to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank target" data-ph="(target) target audience"></span> so that <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>Moreover, it is advisable that <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 22" data-ph="(22) what"></span> should be <em>arranged / provided / developed</em> to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>In addition, we should <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 23" data-ph="(23) action"></span> in order to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Data Bank: Which Data Goes into Which Blank</h2>
+        <div class="zh-label">数据对照：哪些数据填入哪个空格</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Each numbered blank in the template is matched to the data in the Question Book (survey charts, focus group feedback and your notes). Expand the table to check.</p>
+        <details class="databank" style="margin-top:8px;"><summary>Show data for each blank (teacher key) <span class="zh-inline">显示各空格所需数据（教师参考）</span></summary>
+<div style="overflow-x:auto;"><table class="form-table dk"><tr><th style="width:62px;">Blank<div class="zh-label">空格</div></th><th style="width:200px;">Where the data comes from<div class="zh-label">数据来源</div></th><th style="width:230px;">Data to use<div class="zh-label">所需数据</div></th><th>Suggested fill (from the model answer)<div class="zh-label">建议填写内容</div></th></tr>
+<tr><td class="dk-n">1</td><td>Q2 chart, <em>Yes</em> (post)</td><td>Post-project 75%</td><td class="dk-fill">three-quarters (75%)</td></tr><tr><td class="dk-n">2</td><td>Q2 question wording</td><td>Motivated to collaborate with other musicians</td><td class="dk-fill">felt motivated to work with other musicians</td></tr><tr><td class="dk-n">3</td><td>Q2 chart, <em>Yes</em> (pre)</td><td>Pre-project 5%</td><td class="dk-fill">5%</td></tr><tr><td class="dk-n">4</td><td>Q2 chart, <em>No</em> (post)</td><td>Post-project 2%</td><td class="dk-fill">just 2%</td></tr><tr><td class="dk-n">5</td><td>Q2 question wording</td><td>Still hesitant to collaborate</td><td class="dk-fill">remained hesitant to collaborate</td></tr><tr><td class="dk-n">6</td><td>Q2 chart, <em>No</em> (pre)</td><td>Pre-project 80%</td><td class="dk-fill">80%</td></tr><tr><td class="dk-n">7</td><td>Q1 chart, <em>Slightly confident</em></td><td>Using DAWs and samplers</td><td class="dk-fill">felt slightly confident in using digital music tools such as DAWs and samplers</td></tr><tr><td class="dk-n">8</td><td>Q1 chart, <em>Slightly confident</em> (pre)</td><td>Pre-project 22%</td><td class="dk-fill">22%</td></tr><tr><td class="dk-n">9</td><td>Q1 chart, <em>Slightly confident</em> (post)</td><td>Post-project 69%</td><td class="dk-fill">69% (nearly 70%)</td></tr><tr><td class="dk-n">10</td><td>Q1 chart, <em>Not confident</em></td><td>Lacking confidence in digital music tools</td><td class="dk-fill">lacked confidence in using them</td></tr><tr><td class="dk-n">11</td><td>Q1 chart, <em>Not confident</em> (pre)</td><td>Pre-project 64%</td><td class="dk-fill">64%</td></tr><tr><td class="dk-n">12</td><td>Q1 chart, <em>Not confident</em> (post)</td><td>Post-project 2%</td><td class="dk-fill">2%</td></tr><tr><td class="dk-n">13</td><td>Feedback 1 😊</td><td>Rare vinyls inspired composition style; &ldquo;treasure trove&rdquo;</td><td class="dk-fill">the library offered rare vinyls that inspired new composition styles.</td></tr><tr><td class="dk-n">14</td><td>Feedback 2 ☹</td><td>Wants more networking events with producers and artists</td><td class="dk-fill">there were not enough networking opportunities with producers and artists.</td></tr><tr><td class="dk-n">15</td><td>Feedback 3 😡</td><td>Interface confusing and hard to use (reword tactfully)</td><td class="dk-fill">the library interface could be made more user-friendly and easier to navigate. <em>(or: expressed concerns about the interface)</em></td></tr><tr><td class="dk-n">16</td><td>Notes: Discussion, 1st point</td><td>Digital music tools (DAWs, samplers)</td><td class="dk-fill">V-Music Library</td></tr><tr><td class="dk-n">17</td><td>Notes: Discussion, 1st point</td><td>&rarr; boost student confidence and creativity</td><td class="dk-fill">enhanced students&rsquo; confidence in using digital music tools such as DAWs and samplers. <em>Elaboration:</em> these are essential in modern music production.</td></tr><tr><td class="dk-n">18</td><td>Notes: Discussion, 2nd point</td><td>Collaborative features of the V-Music Library</td><td class="dk-fill">the collaborative features of the V-Music Library <em>(subject for &ldquo;participants / ?????&rdquo;: students and alumni)</em></td></tr><tr><td class="dk-n">19</td><td>Notes: Discussion, 2nd point</td><td>&rarr; peer-to-peer learning and industry engagement</td><td class="dk-fill">have encouraged peer-to-peer learning and strengthened connections between students and industry professionals. <em>Elaboration:</em> fostering a more engaging and supportive educational environment.</td></tr><tr><td class="dk-n">20</td><td>Notes: Conclusion</td><td>Effective &mdash; enhance music education and collaboration among students and alumni</td><td class="dk-fill">helping students and alumni acquire practical music production skills and build collaborative networks</td></tr><tr><td class="dk-n">21</td><td>Notes: Recommendations, 1st point</td><td>Tutorials and artist interviews</td><td class="dk-fill">regular tutorials and artist interviews <em>[target audience: students]</em> so that they can deepen their understanding of music production and gain insights from industry professionals</td></tr><tr><td class="dk-n">22</td><td>Notes: Recommendations, 2nd point + Feedback 2</td><td>Regular meetups or webinars with music professionals</td><td class="dk-fill">networking events and webinars with music producers and artists &hellip; to allow participants to build connections and explore collaboration opportunities</td></tr><tr><td class="dk-n">23</td><td>Feedback 3 (your own recommendation)</td><td>Interface confusing and hard to use</td><td class="dk-fill">redesign and simplify the interface &hellip; in order to help users navigate the platform more easily and make full use of its resources</td></tr></table></div></details>
+    </div>
+
+    <div class="card">
+        <h2>Possible Response</h2><div class="zh-label">参考回应</div>
+        <div class="project-section"><h3>3. Findings <span class="zh-inline">研究结果</span></h3>
+<p class="answer-block">After the project, nearly 70% of the respondents reported that they felt slightly confident in using digital music tools such as DAWs and samplers, showing a considerable rise from only 22% who expressed similar confidence before it. Likewise, the percentage of respondents who reported lacking confidence fell sharply from 64% before the project to just 2% after its completion. Moreover, three quarters of the respondents reported feeling motivated to work with other musicians after the project, showing a significant increase from only 5% prior to it. Notably, just 2% remained hesitant to collaborate, marking a substantial improvement from the previous 80%.</p><div class="zh-text">项目结束后，近70%的受访者表示他们对使用DAW和采样器等数字音乐工具稍有信心，较项目前仅22%表达类似信心有相当大的上升。同样，表示缺乏信心的受访者百分比由项目前的64%大幅下降至项目结束后的仅2%。此外，四分之三的受访者表示在项目后有动力与其他音乐人合作，较项目前仅5%有显著增加。值得注意的是，仅2%仍对合作有所犹豫，较之前的80%有大幅改善。</div>
+<p class="answer-block">It was commented that the library offered rare vinyls that inspired new composition styles. However, some respondents said that there were not enough networking opportunities with producers and artists. In addition, they suggested that the library interface could be made more user-friendly and easier to navigate.</p><div class="zh-text">有人评论指，图书馆提供的珍稀黑胶唱片启发了新的作曲风格。然而，一些受访者表示，与制作人和艺人交流的机会不足。此外，他们建议图书馆界面可以更用户友好、更易于浏览。</div></div>
+<div class="project-section"><h3>4. Discussion <span class="zh-inline">讨论</span></h3>
+<p class="answer-block">The findings suggest that the V-Music Library has successfully enhanced students&rsquo; confidence in using digital music tools such as DAWs and sampler, which are essential in modern music production. Moreover, the collaborative features of the V-Music Library have encouraged peer-to-peer learning and strengthened connections between students and industry professionals, fostering a more engaging and supportive educational environment.</p><div class="zh-text">研究结果显示，V-Music Library成功提升了学生使用DAW和采样器等数字音乐工具的信心，而这些工具对现代音乐制作至关重要。此外，V-Music Library的协作功能促进了同侪学习，并加强了学生与业界专业人士之间的联系，营造了更具吸引力和支持性的教育环境。</div></div>
+<div class="project-section"><h3>5. Conclusion <span class="zh-inline">结论</span></h3>
+<p class="answer-block">To conclude, the project has been successful in helping students and alumni acquire practical music production skills and build collaborative networks. While it is obvious that we should continue with this meaningful initiative, some areas for improvement have been identified to achieve better outcomes.</p><div class="zh-text">总括而言，该项目成功帮助学生及校友掌握实用的音乐制作技能并建立合作网络。尽管我们显然应继续推行这项有意义的计划，但已发现一些需要改进的地方，以取得更好的成果。</div></div>
+<div class="project-section"><h3>6. Recommendations <span class="zh-inline">建议</span></h3>
+<p class="answer-block">In light of the positive outcomes, it is recommended that regular tutorials and artist interviews be introduced so that students can deepen their understanding of music production and gain insights from industry professionals. Moreover, it is advisable that networking events and webinars with music producers and artists be arranged to allow participants to build connections and explore collaboration opportunities. To further improve the effectiveness of the V-Music Library, it is suggested that the interface be redesigned and simplified in order that users can navigate the platform more easily and make full use of its resources.</p><div class="zh-text">鉴于积极的成果，建议引入定期教程和艺人访谈，让学生加深对音乐制作的理解，并从业界专业人士身上获得启发。此外，建议安排与音乐制作人和艺人的交流活动及网络研讨会，让参与者建立联系并探索合作机会。为进一步提升V-Music Library的成效，建议重新设计并简化界面，使用户能更轻松地浏览平台并充分利用其资源。</div></div>
+    </div>
+</div>
+
+<!-- ==================== TAB 6: Supplementary Task — AdVision Studio ==================== -->
+<div class="tab-content" id="tab6">
+    <div class="card">
+        <h2>LAN4103 EAII Supplementary Task (AdVision Studio) — Question Book</h2><div class="zh-label">LAN4103 EAII 补充任务（AdVision Studio）— 题目册</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Prepared by Rebecca</p>
+    </div>
+
+    <div class="card">
+        <h2>Task</h2><div class="zh-label">任务</div>
+        <p style="font-size:0.93em; color:#555;">You are Jamie Chan, a student intern at AdVision Studio. You have conducted a mini-project in the company to help raise public awareness of advertising technologies by organising a public exhibition and workshop series on the future of advertising technologies.</p><div class="zh-text">你是陈Jamie，AdVision Studio的实习生。你在公司开展了一个迷你项目，透过举办公开展览及工作坊系列，介绍广告科技的未来，以提高公众对广告科技的认识。</div>
+        <p style="font-size:0.93em; color:#555; margin-top:6px;">You are required to write an evaluation report to the supervisor discussing the effectiveness of the project and giving recommendations for the way forward.</p><div class="zh-text">你须向主管撰写一份评估报告，讨论项目成效并提出未来发展建议。</div>
+    </div>
+
+    <div class="card">
+        <h2>Your Notes and Research Data</h2><div class="zh-label">你的笔记及研究数据</div>
+        <dl class="info-grid"><dt>Background:</dt><dd>The public has shown growing interest in understanding emerging advertising technologies such as augmented reality (AR), AI-generated content, and programmatic media.</dd><dt>Project title:</dt><dd>AdTech Festival: Future of Advertising</dd><dt>Participants:</dt><dd>Industry experts, creative professionals, and over 200 public attendees.</dd></dl><div class="zh-text"><dl class="info-grid"><dt>背景：</dt><dd>公众对了解增强现实（AR）、AI生成内容及程序化媒体等新兴广告科技的兴趣日益增加。</dd><dt>项目名称：</dt><dd>AdTech Festival：广告的未来</dd><dt>参与者：</dt><dd>业界专家、创意专业人士及200多名公众参加者。</dd></dl></div>
+        <div class="project-section" style="margin-top:14px;">
+            <h3>Project Details <span class="zh-inline">项目详情</span></h3>
+            <table class="form-table">
+                <tr><th style="background:#5a9e3e; color:white;">Period</th><th style="background:#5a9e3e; color:white; width:auto;">Activity</th></tr>
+                <tr><td>Sept 202- <span class="zh-inline">202-年9月</span></td><td>Pre-project survey <span class="zh-inline">项目前调查</span></td></tr><tr><td>Oct &ndash; Nov 202- <span class="zh-inline">202-年10月至11月</span></td><td>Content curation, speaker invitations, venue setup, promotional campaigns <span class="zh-inline">内容策划、邀请讲者、场地布置、宣传推广</span></td></tr><tr><td>Dec 202- <span class="zh-inline">202-年12月</span></td><td>Post-project survey and focus group interviews <span class="zh-inline">项目后调查及焦点小组访谈</span></td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Results of the Pre- and Post-Project Surveys</h2><div class="zh-label">项目前后调查结果</div><p class="tpl-note" style="margin:6px 0 8px;">Green tags show which blank(s) of the template each salient data point fills. <span class="zh-inline">绿色标签表示该数据适用于模板中的哪些空格。</span></p>
+        <p class="q-text">Q1. How familiar are you with Advertising Technologies (AR and AI)?</p><div class="zh-text">问题1：你对广告科技（AR和AI）有多熟悉？</div><div class="bc"><div class="bc-title">Q1 — Familiarity with advertising technologies (AR and AI) <span class="zh-inline">问题1 — 对广告科技（AR和AI）的熟悉程度</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row hl"><div class="bc-label">Highly Familiar <span class="zh-inline">非常熟悉</span><br><span class="bk">Blanks 4–6</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:3%"></span><span class="bc-val">3%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:27%"></span><span class="bc-val">27%</span></div></div></div><div class="bc-row hl"><div class="bc-label">Familiar <span class="zh-inline">熟悉</span><br><span class="bk">Blanks 1–3</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:21%"></span><span class="bc-val">21%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:62%"></span><span class="bc-val">62%</span></div></div></div><div class="bc-row"><div class="bc-label">Somewhat Familiar <span class="zh-inline">略为熟悉</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:10%"></span><span class="bc-val">10%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:10%"></span><span class="bc-val">10%</span></div></div></div><div class="bc-row"><div class="bc-label">Not Familiar <span class="zh-inline">不熟悉</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:66%"></span><span class="bc-val">66%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:1%"></span><span class="bc-val">1%</span></div></div></div></div><div class="sticky inline">Jamie, pls cover these salient points in the report <span class="zh-inline">Jamie，请在报告中涵盖这些重点</span></div><p class="q-text" style="margin-top:16px;">Q2: Did the festival inspire you to explore creative advertising tools?</p><div class="zh-text">问题2：节庆活动有否启发你探索创意广告工具？</div><div class="bc"><div class="bc-title">Q2 — Inspired to explore creative advertising tools <span class="zh-inline">问题2 — 受启发探索创意广告工具</span></div>
+<div class="bc-legend"><span class="bc-key pre"></span>Pre-project <span class="zh-inline">项目前</span> <span class="bc-key post" style="margin-left:14px"></span>Post-project <span class="zh-inline">项目后</span></div><div class="bc-row"><div class="bc-label">Very <span class="zh-inline">非常</span><br><span class="bk">Blanks 7–9</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:5%"></span><span class="bc-val">5%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:77%"></span><span class="bc-val">77%</span></div></div></div><div class="bc-row"><div class="bc-label">Quite <span class="zh-inline">颇有</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:13%"></span><span class="bc-val">13%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:21%"></span><span class="bc-val">21%</span></div></div></div><div class="bc-row"><div class="bc-label">Not at all <span class="zh-inline">完全没有</span><br><span class="bk">Blanks 10–12</span></div><div class="bc-bars">
+<div class="bc-line"><span class="bc-bar pre" style="width:82%"></span><span class="bc-val">82%</span></div>
+<div class="bc-line"><span class="bc-bar post" style="width:2%"></span><span class="bc-val">2%</span></div></div></div></div><div class="sticky inline">Pls highlight only salient points <span class="zh-inline">请只强调重点</span></div>
+    </div>
+
+    <div class="card">
+        <h2>Student Feedback from Focus Group Interviews</h2><div class="zh-label">焦点小组访谈的学生反馈</div>
+        <table class="form-table fb-table">
+<tr><th>Feedback 1</th><th>Feedback 2</th><th>Feedback 3</th></tr>
+<tr><td>&ldquo;The AR demo was amazing! I learned so much about immersive branding.&rdquo; 😊<br><span class="bk">Blank 13</span><div class="zh-text">「AR演示太棒了！我学到了很多关于沉浸式品牌的知识。」</div></td><td>&ldquo;Some exhibits were too technical for beginners.&rdquo; ☹<br><span class="bk">Blanks 14, 21</span><div class="zh-text">「有些展品对初学者来说太专业了。」</div></td><td>&ldquo;I felt overwhelmed by the jargon in the expert talks.&rdquo; 😡<br><span class="bk">Blanks 15, 23</span><div class="zh-text">「我被专家讲座中的行话弄得不知所措。」</div></td></tr>
+</table>
+        <div class="notes-box"><h3>Your notes</h3>
+<p><strong>Discussion of findings</strong></p>
+<ul><li>cutting-edge advertising tools &rarr; enhance public awareness of emerging technologies <span class="bk">Blanks 16–17</span></li>
+<li>hands-on experiences &rarr; participant engagement, learning, and deeper exploration <span class="bk">Blanks 18–19</span></li></ul>
+<p><strong>Conclusion</strong></p>
+<ul><li>Effective (enhanced awareness and engagement with future advertising technologies) <span class="bk">Blank 20</span></li></ul>
+<p><strong>Recommendations</strong></p>
+<ul><li>beginner-friendly guides and interactive tutorials <span class="bk">Blank 21</span></li><li>multilingual support and simplified content <span class="bk">Blank 22</span></li>
+<li><strong><em>[Give one recommendation based on Feedback 3]</em></strong> <span class="bk">Blank 23</span></li></ul></div><div class="zh-text">你的笔记。讨论：尖端广告工具 → 提升公众对新兴科技的认识；亲身体验 → 参与度、学习及更深入探索。结论：有效（提升了对未来广告科技的认识及参与度）。建议：初学者友好指南及互动教程；多语言支持及简化内容；[根据反馈3提出一项建议]。</div>
+<div class="sticky inline">Jamie, pls elaborate on these! <span class="zh-inline">Jamie，请详细阐述这些内容！</span></div>
+    </div>
+
+    <div class="card">
+        <h2>Completed Parts of the Report</h2><div class="zh-label">报告已完成部分</div>
+        <div class="project-section"><h3 style="font-size:1.02em;">Evaluation Report on AdTech Festival: Future of Advertising Project</h3><div class="zh-label">AdTech Festival：广告的未来 项目评估报告</div>
+<h3>1. Introduction <span class="zh-inline">简介</span></h3>
+<p style="font-size:0.93em; color:#444;">The AdTech Festival was designed to engage the public in exploring the future of advertising technologies. The mini-project, AdTech Festival: Future of Advertising, aims to raise public awareness of advertising technologies. This report discusses the effectiveness of the project and provides recommendations for future initiatives.</p><div class="zh-text">AdTech Festival旨在吸引公众探索广告科技的未来。迷你项目「AdTech Festival：广告的未来」旨在提高公众对广告科技的认识。本报告讨论项目成效，并为未来的活动提出建议。</div></div>
+<div class="project-section"><h3>2. Methodology <span class="zh-inline">研究方法</span></h3>
+<p><strong>2.1 Participants</strong> <span class="zh-inline">参与者</span></p>
+<p style="font-size:0.93em; color:#444;">The festival involved industry experts, creative professionals, and over 200 public attendees. The sessions were held at HKDI Gallery over three days.</p><div class="zh-text">节庆活动汇聚了业界专家、创意专业人士及200多名公众参加者。活动在HKDI Gallery举行，为期三天。</div>
+<p style="margin-top:8px;"><strong>2.2 Implementation</strong> <span class="zh-inline">实施</span></p>
+<p style="font-size:0.93em; color:#444;">From October to November 202-, the project was executed in three phases: content curation and speaker invitations, venue setup and promotional campaigns, and the festival itself, which included interactive exhibits, expert talks, and post-event media coverage.</p><div class="zh-text">202-年10月至11月期间，项目分三个阶段执行：内容策划及邀请讲者、场地布置及宣传推广，以及节庆活动本身，包括互动展品、专家讲座及活动后的媒体报道。</div>
+<p style="margin-top:8px;"><strong>2.3 Evaluation</strong> <span class="zh-inline">评估</span></p>
+<p style="font-size:0.93em; color:#444;">To collect data for evaluation, the participants had been invited to take part in a pre-project survey in September 202-. In December, a post-project survey was administered and focus group interviews were arranged for participants to share their experiences.</p><div class="zh-text">为收集评估数据，参与者受邀于202-年9月参加项目前调查。12月进行了项目后调查，并安排焦点小组访谈，让参与者分享他们的体验。</div></div>
+        <div class="sticky ">Continue with the following sections:<br>3. Findings<br>4. Discussion<br>5. Conclusion<br>6. Recommendations<br><span class="zh-inline">请继续撰写以下部分：3. 研究结果、4. 讨论、5. 结论、6. 建议</span></div>
+        <textarea class="blank-input" rows="15" placeholder="3. Findings&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;4. Discussion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;5. Conclusion&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;&#10;6. Recommendations&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;__________________________________________________________________________________________&#10;"></textarea>
+    </div>
+
+    <div class="card" id="tpl-card-2">
+        <h2>Template for EAII_LAN4103: Fill in the Blanks</h2>
+        <div class="zh-label">EAII_LAN4103 模板：填写空格（填写内容后空格会自动扩展）</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Click on a blank and type. Each blank grows as you write. Use the numbered hints, then compare your answer with the model answer below.</p>
+        <div class="vocab-box" style="font-size:0.88em;"><strong>Hints:</strong> (1), (3), (4): use numerical/general description (e.g. x% / a majority of, etc.) &nbsp;|&nbsp; (2), (5): use reported speech &nbsp;|&nbsp; <em>rose</em> / <em>fell</em>: use past tense verbs
+            <div class="zh-text">提示：(1)、(3)、(4) 使用数字／概括性描述（例如 x%／大多数等）；(2)、(5) 使用转述语；rose／fell 等动词使用过去式。</div></div>
+
+        <div class="project-section tpl">
+            <h3>Findings <span class="zh-inline">研究结果</span></h3>
+            <ul class="tpl-list">
+                <li>After the project, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 1" data-ph="(1) x% / a majority of"></span> of the respondents said that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 2" data-ph="(2) reported speech"></span>, which was <em>a significant increase / remarkable rise / sharp rise / great increase</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 3" data-ph="(3) x% / a majority of"></span> before the project.</li>
+                <li><span class="fill" contenteditable="true" role="textbox" aria-label="Blank 4" data-ph="(4) x% / a majority of"></span> of them reported that they <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 5" data-ph="(5) reported speech"></span>, compared to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 6" data-ph="(6) x%"></span> before.</li>
+                <li>Moreover, the number of respondents who <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 7" data-ph="(7) description"></span> <em>rose</em> <small style="color:#888">(past tense verb)</small> sharply from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 8" data-ph="(8) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 9" data-ph="(9) x%"></span>, while those <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 10" data-ph="(10) description"></span> <em>fell</em> <em>drastically / remarkably</em> from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 11" data-ph="(11) x%"></span> to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 12" data-ph="(12) x%"></span>.</li>
+                <li>It was also found that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 13" data-ph="(13) subject + verb"></span></li>
+                <li>However, some respondents <em>mentioned / stated / reported</em> that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 14" data-ph="(14) subject + verb"></span></li>
+                <li>Furthermore, some of them suggested that <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 15" data-ph="(15) subject + verb"></span>
+                    <div class="tpl-or">(OR: some of them expressed concerns about + noun)</div></li>
+            </ul>
+            <p class="tpl-note">(* For sentence 6, use a neutral and professional wording to keep the tone respectful and constructive)</p>
+            <div class="zh-text">（*第6句请使用中立、专业的措辞，保持尊重及具建设性的语气。或：some of them expressed concerns about + 名词）</div>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Discussion <span class="zh-inline">讨论</span></h3>
+            <ul class="tpl-list">
+                <li>The findings suggest that the <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 16" data-ph="(16) subject"></span> <em>has / have</em> effectively <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 17" data-ph="(17) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+                <li>Moreover, <span class="fill" contenteditable="true" role="textbox" aria-label="Blank ?" data-ph="(?) participants / ?????"></span> have benefited from <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 18" data-ph="(18) noun phrase"></span>, which <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 19" data-ph="(19) verb phrase"></span>. <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration" data-ph="(elaboration)"></span></li>
+            </ul>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Conclusion <span class="zh-inline">结论</span></h3>
+            <ul class="tpl-list">
+                <li>To conclude, the project has been <em>successful / effective</em> in <span class="fill long" contenteditable="true" role="textbox" aria-label="Blank 20" data-ph="(20) Verb + -ing"></span></li>
+                <li>While similar projects should continue to be offered, there are some areas that could be improved for better results.</li>
+            </ul>
+        </div>
+
+        <div class="project-section tpl">
+            <h3>Recommendations <span class="zh-inline">建议</span></h3>
+            <ul class="tpl-list">
+                <li>In light of the positive outcomes, it is recommended <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 21" data-ph="(21) what"></span> could be offered to <span class="fill" contenteditable="true" role="textbox" aria-label="Blank target" data-ph="(target) target audience"></span> so that <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>Moreover, it is advisable that <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 22" data-ph="(22) what"></span> should be <em>arranged / provided / developed</em> to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+                <li>In addition, we should <span class="fill" contenteditable="true" role="textbox" aria-label="Blank 23" data-ph="(23) action"></span> in order to <span class="fill long" contenteditable="true" role="textbox" aria-label="elaboration e.g. benefit" data-ph="(elaboration e.g. benefit)"></span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Data Bank: Which Data Goes into Which Blank</h2>
+        <div class="zh-label">数据对照：哪些数据填入哪个空格</div>
+        <p style="font-size:0.9em; color:#666; margin-top:6px;">Each numbered blank in the template is matched to the data in the Question Book (survey charts, focus group feedback and your notes). Expand the table to check.</p>
+        <details class="databank" style="margin-top:8px;"><summary>Show data for each blank (teacher key) <span class="zh-inline">显示各空格所需数据（教师参考）</span></summary>
+<div style="overflow-x:auto;"><table class="form-table dk"><tr><th style="width:62px;">Blank<div class="zh-label">空格</div></th><th style="width:200px;">Where the data comes from<div class="zh-label">数据来源</div></th><th style="width:230px;">Data to use<div class="zh-label">所需数据</div></th><th>Suggested fill (from the model answer)<div class="zh-label">建议填写内容</div></th></tr>
+<tr><td class="dk-n">1</td><td>Q1 chart, <em>Familiar</em> (post)</td><td>Post-project 62%</td><td class="dk-fill">62%</td></tr><tr><td class="dk-n">2</td><td>Q1 question wording</td><td>Familiar with advertising technologies (AR and AI)</td><td class="dk-fill">were familiar with advertising technologies such as AR and AI</td></tr><tr><td class="dk-n">3</td><td>Q1 chart, <em>Familiar</em> (pre)</td><td>Pre-project 21%</td><td class="dk-fill">approximately one-fifth (21%)</td></tr><tr><td class="dk-n">4</td><td>Q1 chart, <em>Highly Familiar</em> (post)</td><td>Post-project 27%</td><td class="dk-fill">slightly more than a quarter (27%)</td></tr><tr><td class="dk-n">5</td><td>Q1 question wording</td><td>Highly familiar with advertising technologies</td><td class="dk-fill">were highly familiar with them</td></tr><tr><td class="dk-n">6</td><td>Q1 chart, <em>Highly Familiar</em> (pre)</td><td>Pre-project 3%</td><td class="dk-fill">3%</td></tr><tr><td class="dk-n">7</td><td>Q2 chart, <em>Very</em></td><td>Very inspired to explore creative advertising tools</td><td class="dk-fill">felt very inspired to explore creative advertising tools</td></tr><tr><td class="dk-n">8</td><td>Q2 chart, <em>Very</em> (pre)</td><td>Pre-project 5%</td><td class="dk-fill">5%</td></tr><tr><td class="dk-n">9</td><td>Q2 chart, <em>Very</em> (post)</td><td>Post-project 77%</td><td class="dk-fill">77% (more than three-quarters)</td></tr><tr><td class="dk-n">10</td><td>Q2 chart, <em>Not at all</em></td><td>Not inspired at all</td><td class="dk-fill">were not inspired at all</td></tr><tr><td class="dk-n">11</td><td>Q2 chart, <em>Not at all</em> (pre)</td><td>Pre-project 82%</td><td class="dk-fill">82%</td></tr><tr><td class="dk-n">12</td><td>Q2 chart, <em>Not at all</em> (post)</td><td>Post-project 2%</td><td class="dk-fill">2%</td></tr><tr><td class="dk-n">13</td><td>Feedback 1 😊</td><td>AR demo was amazing; learned about immersive branding</td><td class="dk-fill">the AR demo was amazing and helped participants learn more about immersive branding.</td></tr><tr><td class="dk-n">14</td><td>Feedback 2 ☹</td><td>Some exhibits too technical for beginners</td><td class="dk-fill">certain exhibits were too technical for beginners.</td></tr><tr><td class="dk-n">15</td><td>Feedback 3 😡</td><td>Overwhelmed by jargon in expert talks (reword tactfully)</td><td class="dk-fill">the expert talks could be more accessible, as technical jargon occasionally hindered engagement. <em>(or: expressed concerns about technical jargon)</em></td></tr><tr><td class="dk-n">16</td><td>Notes: Discussion, 1st point</td><td>Cutting-edge advertising tools</td><td class="dk-fill">cutting-edge advertising tools</td></tr><tr><td class="dk-n">17</td><td>Notes: Discussion, 1st point</td><td>&rarr; enhance public awareness of emerging technologies</td><td class="dk-fill">enhanced public awareness of emerging technologies. <em>Elaboration:</em> AR demos, AI-generated content and interactive exhibits.</td></tr><tr><td class="dk-n">18</td><td>Notes: Discussion, 2nd point</td><td>Hands-on experiences</td><td class="dk-fill">hands-on experiences <em>(subject: participants)</em></td></tr><tr><td class="dk-n">19</td><td>Notes: Discussion, 2nd point</td><td>&rarr; participant engagement, learning, and deeper exploration</td><td class="dk-fill">enhanced engagement and learning and encouraged deeper exploration of the showcased innovations</td></tr><tr><td class="dk-n">20</td><td>Notes: Conclusion</td><td>Effective &mdash; enhanced awareness and engagement with future advertising technologies</td><td class="dk-fill">enhancing public understanding and interest in advertising technologies</td></tr><tr><td class="dk-n">21</td><td>Notes: Recommendations, 1st point + Feedback 2</td><td>Beginner-friendly guides and interactive tutorials</td><td class="dk-fill">beginner-friendly guides and interactive tutorials <em>[target audience: attendees / future festival visitors]</em> so that attendees with varying levels of expertise can benefit equally</td></tr><tr><td class="dk-n">22</td><td>Notes: Recommendations, 2nd point</td><td>Multilingual support and simplified content</td><td class="dk-fill">multilingual support and simplified content &hellip; to accommodate diverse audiences</td></tr><tr><td class="dk-n">23</td><td>Feedback 3 (your own recommendation)</td><td>Overwhelmed by jargon in expert talks</td><td class="dk-fill">accompany expert talks with visual aids and glossary handouts &hellip; in order to help participants follow the discussions and reduce confusion caused by technical jargon</td></tr></table></div><p class="tpl-note" style="margin-top:8px;"><strong>Check the arithmetic:</strong> the Suggested Answer below says 93% felt inspired, but the Q2 chart gives Very 77% + Quite 21% = 98%.</p></details>
+    </div>
+
+    <div class="card">
+        <h2>Suggested Answer</h2><div class="zh-label">建议答案</div>
+        <div class="project-section"><h3>3. Findings <span class="zh-inline">研究结果</span></h3>
+<p class="answer-block">After the project, 62% of respondents reported that they were familiar with advertising technologies such as AR and AI, compared to approximately one-fifth prior to the project. Slightly more than a quarter stated that they were highly familiar, representing a significant increase from the mere 3% who had reported a high level of familiarity before the project. Additionally, the vast majority of participants (93%) reported feeling inspired to explore creative advertising tools, with more than three-quarters describing their level of inspiration as very high after the project.</p><div class="zh-text">项目结束后，62%的受访者表示他们熟悉AR和AI等广告科技，而项目前约为五分之一。略多于四分之一的人表示非常熟悉，较项目前仅3%表示高度熟悉有显著增加。此外，绝大多数参与者（93%）表示受到启发去探索创意广告工具，其中超过四分之三的人表示启发程度在项目后非常高。</div>
+<p class="answer-block">It was commented that the AR demo was amazing and helped participants learn more about immersive branding. However, some respondents said that certain exhibits were too technical for beginners. A few mentioned that the expert talks could be more accessible, as technical jargon occasionally hindered engagement.</p><div class="zh-text">有人评论指，AR演示非常精彩，帮助参与者更深入了解沉浸式品牌。然而，一些受访者表示部分展品对初学者来说过于专业。少数人提到专家讲座可以更易理解，因为专业术语偶尔会妨碍参与。</div></div>
+<div class="project-section"><h3>4. Discussion <span class="zh-inline">讨论</span></h3>
+<p class="answer-block">The findings suggest that cutting-edge advertising tools have effectively enhanced public awareness of emerging technologies. AR demos, AI-generated content, and interactive exhibits provided hands-on experiences that not only enhanced engagement and learning but also encouraged deeper exploration of the showcased innovations.</p><div class="zh-text">研究结果显示，尖端广告工具有效提升了公众对新兴科技的认识。AR演示、AI生成内容及互动展品提供了亲身体验，不但提升了参与度和学习成效，还鼓励参加者更深入探索所展示的创新科技。</div></div>
+<div class="project-section"><h3>5. Conclusion <span class="zh-inline">结论</span></h3>
+<p class="answer-block">To conclude, the project has been successful in enhancing public understanding and interest in advertising technologies. While the project met its core objectives, some areas for improvement have been identified to achieve better outcomes</p><div class="zh-text">总括而言，该项目成功提升了公众对广告科技的理解和兴趣。尽管项目达到了核心目标，但已发现一些需要改进的地方，以取得更好的成果。</div></div>
+<div class="project-section"><h3>6. Recommendations <span class="zh-inline">建议</span></h3>
+<p class="answer-block">In view of the positive outcomes, it is recommended that future festivals include beginner-friendly guides and interactive tutorials so that attendees with varying levels of expertise can benefit equally. Moreover, it is advisable that multilingual support and simplified content be provided to accommodate diverse audiences. To further improve the effectiveness of the project, it is suggested that expert talks be accompanied by visual aids and glossary handouts in order that participants can better follow the discussions and reduce confusion caused by technical jargon.</p><div class="zh-text">鉴于积极的成果，建议未来的节庆活动加入初学者友好的指南和互动教程，让不同程度的参加者都能同样受益。此外，建议提供多语言支持和简化内容，以照顾不同的受众。为进一步提升项目成效，建议专家讲座配以视觉辅助工具和词汇表讲义，让参加者更易理解讨论内容，并减少因专业术语造成的困惑。</div></div>
+    </div>
+</div>
     </div><!-- /.container -->
 
     <script>
@@ -759,6 +1388,17 @@
             document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === idx));
             document.querySelectorAll('.tab-content').forEach((c, i) => c.classList.toggle('active', i === idx));
         }
+
+        document.addEventListener('paste', function(e) {
+            if (e.target.classList && e.target.classList.contains('fill')) {
+                e.preventDefault();
+                var t = (e.clipboardData || window.clipboardData).getData('text/plain').replace(/\s+/g, ' ');
+                document.execCommand('insertText', false, t);
+            }
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && e.target.classList && e.target.classList.contains('fill') && !e.target.classList.contains('long')) e.preventDefault();
+        });
         function autoResize(el) {
             el.style.height = 'auto';
             el.style.height = el.scrollHeight + 'px';
